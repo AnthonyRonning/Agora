@@ -64,9 +64,23 @@
               <v-icon>people</v-icon>
             </v-btn>
 
-            <router-link :to="{name: 'Settings'}">
-            <img :src="user && user.avatarUrl() ? user.avatarUrl() : '/avatar-placeholder.png'" class="avatar">
-            </router-link>
+            <v-btn icon
+                   :to="{name: 'Cart'}">
+              <v-badge color="green" overlap>
+                <span slot="badge">6</span>
+                <v-icon
+                  medium
+                >
+                  shopping_cart
+                </v-icon>
+              </v-badge>
+            </v-btn>
+
+            <v-btn icon>
+              <router-link :to="{name: 'Settings'}">
+              <img :src="user && user.avatarUrl() ? user.avatarUrl() : '/avatar-placeholder.png'" class="avatar">
+              </router-link>
+            </v-btn>
 
             <v-menu offset-y>
               <v-btn icon
