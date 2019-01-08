@@ -1,12 +1,12 @@
 .DS_Store
 node_modules/
-dist/
+# dist/
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
 /test/e2e/reports
 selenium-debug.log
-package-lock.json
+# package-lock.json
 
 # Editor directories and files
 .idea
@@ -50,7 +50,7 @@ bower_components
 .lock-wscript
 
 # Compiled binary addons (http://nodejs.org/api/addons.html)
-build/Release
+# build/Release
 
 # Dependency directories
 node_modules/
@@ -85,7 +85,7 @@ docker-compose.local.yml
 *.azcli
 
 # compiled output
-/dist
+# /dist
 /tmp
 /out-tsc
 

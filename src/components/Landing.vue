@@ -1,14 +1,17 @@
 <template>
   <div class="hello">
     <div>
-      <h1>Blockstack Todo</h1>
-      <p>A decentralized Todo app built on <a href="https://blockstack.org" target="_blank">Blockstack</a></p>
+      <h1>Blockmart</h1>
+      <p>A decentralized marketplace app built on <a href="https://blockstack.org" target="_blank">Blockstack</a></p>
       <button class="btn btn-default" @click.prevent="signIn">Sign In With Blockstack</button>
     </div>
   </div>
 </template>
 
 <script>
+import Raven from 'raven-js'
+const logger = require('heroku-logger')
+
 export default {
   name: 'landing',
   data () {
@@ -19,8 +22,13 @@ export default {
 
   methods: {
     signIn () {
+      logger.info('Sign in to blockstack request')
+      Raven.captureBreadcrumb({
+        message: 'User Signing In',
+        category: 'action'
+      })
       const blockstack = this.blockstack
-      blockstack.redirectToSignIn()
+      blockstack.redirectToSignIn(window.location.origin, window.location.origin + '/manifest.json', ['store_write', 'publish_data'])
     }
   }
 }

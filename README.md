@@ -1,6 +1,6 @@
-# Blockstack Todo App
+# BlockMart
 
-> A simple Vue.js Todo app built for the decentralized web.
+> A simple Vue.js marketplace app built for the decentralized web.
 
 ## Build Setup
 
@@ -21,6 +21,5 @@ npm run build --report
 ```
 
 For detailed explanation on how this app works, checkout the [guide](https://blockstack.org/tutorials/todo-list/).
-
 
 

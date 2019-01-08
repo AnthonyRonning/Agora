@@ -12,7 +12,6 @@ function allowCrossDomain(req, res, next) {
   next()
 }
 
-
 var opn = require('opn')
 var path = require('path')
 var express = require('express')
@@ -59,7 +58,9 @@ Object.keys(proxyTable).forEach(function (context) {
 })
 
 // handle fallback for HTML5 history API
-app.use(require('connect-history-api-fallback')())
+app.use(require('connect-history-api-fallback')({
+  disableDotRule: false
+}))
 
 // serve webpack bundle output
 app.use(devMiddleware)

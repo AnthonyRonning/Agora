@@ -1,14 +1,14 @@
 {
-  "name": "Contacts App",
-  "start_url": "http://placeholder.com",
+  "name": "BlockMart",
+  "start_url": "https://blockmart.herokuapp.com",
   "description": "A simple contacts sharing app built on blockstack",
   "icons": [{
-    "src": "http://blockstack-todos.appartisan.com/logo.png",
+    "src": "https://blockmart.herokuapp.com/logo.png",
     "sizes": "400x400",
     "type": "image/png"
   },
   {
-    "src": "http://blockstack-todos.appartisan.com/avatar-placeholder.png",
+    "src": "https://blockmart.herokuapp.com/avatar-placeholder.png",
     "sizes": "400x400",
     "type": "image/png"
   }]
