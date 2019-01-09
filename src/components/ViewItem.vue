@@ -64,6 +64,7 @@
   // var PRIVATE_STORAGE_FILE = 'private/privateInformation.json'
   // var PUBLIC_STORAGE_FILE = 'public/publicInformation.json'
   var ITEM_DIR_LOC = 'public/item/'
+  var CART_LIST = 'private/cart.json'
 
   export default {
     name: 'ViewItem',
@@ -120,7 +121,60 @@
           })
       },
       addToCart () {
+        var itemId = this.item.id
+        // get cart list
+        this.blockstack.getFile(CART_LIST, { decrypt: true }) // decryption is enabled by default
+          .then((CartsJson) => {
+            var carts = JSON.parse(CartsJson || '[]')
 
+            // check if vendor already in cart
+            var cart = JSON.parse('[]')
+            if (carts.length !== 0) {
+              var cartIndex = carts.findIndex(x => x.vendor === this.profileId)
+
+              // vendor not found in cart, add vendor and item
+              if (cartIndex === -1) {
+                cart = {
+                  vendor: this.profileId,
+                  itemList: [
+                    {
+                      id: itemId,
+                      quantity: 1
+                    }
+                  ]
+                }
+                carts.push(cart)
+              } else {
+                // vendor found in cart, check if item exists. Add quantity if exists
+                var itemIndex = carts[cartIndex].itemList.findIndex(x => x.id === itemId)
+                if (itemIndex === -1) {
+                  var newItem = {
+                    id: itemId,
+                    quantity: 1
+                  }
+                  carts[cartIndex].itemList.push(newItem)
+                } else {
+                  carts[cartIndex].itemList[itemIndex].quantity++
+                }
+              }
+            } else {
+              // cart list is empty
+              cart = {
+                vendor: this.profileId,
+                itemList: [
+                  {
+                    id: itemId,
+                    quantity: 1
+                  }
+                ]
+              }
+              carts.push(cart)
+            }
+
+            // save cart list
+            logger.info('Saving items list', { carts: carts })
+            return this.blockstack.putFile(CART_LIST, JSON.stringify(carts), { encrypt: true })
+          })
       }
     }
   }

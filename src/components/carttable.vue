@@ -12,7 +12,7 @@
         <v-btn :disabled="isEmpty" slot="activator" color="primary" dark class="mb-2">Pay now: ${{ totalPrice }}</v-btn>
         <v-card>
           <v-card-title>
-            <span class="headline">{{ formTitle }}</span>
+            <span class="headline">{{ cart.vendorName }}</span>
           </v-card-title>
 <!--
           <v-card-text>
@@ -41,7 +41,7 @@
     </v-toolbar>
     <v-data-table
       :headers="headers"
-      :items="desserts"
+      :items="cart.itemList"
       class="elevation-1"
       hide-actions
     >
@@ -65,7 +65,7 @@
 <script>
   export default {
     Name: 'carttable',
-    props: ['vendorName', 'desserts'],
+    props: ['vendorName', 'cart'],
     data: () => ({
       dialog: false,
       headers: [
@@ -78,7 +78,6 @@
         { text: 'Quantity', value: 'quantity', align: 'right' },
         { text: 'Actions', value: 'name', align: 'right', sortable: false }
       ],
-      desserts: [],
       editedIndex: -1,
       editedItem: {
         name: '',
@@ -94,11 +93,11 @@
 
     computed: {
       isEmpty () {
-        return this.desserts.length === 0
+        return this.cart.itemList.length === 0
       },
       totalPrice: function () {
         // `this` points to the vm instance
-        return this.desserts
+        return this.cart.itemList
           .map(v => v.price)
           .reduce((sum, current) => sum + current, 0)
       }
@@ -119,8 +118,8 @@
       },
 
       deleteItem (item) {
-        const index = this.desserts.indexOf(item)
-        confirm('Are you sure you want to delete this item?') && this.desserts.splice(index, 1)
+        const index = this.cart.itemList.indexOf(item)
+        confirm('Are you sure you want to delete this item?') && this.cart.itemList.splice(index, 1)
       },
 
       close () {
@@ -133,9 +132,9 @@
 
       save () {
         if (this.editedIndex > -1) {
-          Object.assign(this.desserts[this.editedIndex], this.editedItem)
+          Object.assign(this.cart.itemList[this.editedIndex], this.editedItem)
         } else {
-          this.desserts.push(this.editedItem)
+          this.cart.itemList.push(this.editedItem)
         }
         this.close()
       }

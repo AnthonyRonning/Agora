@@ -17,9 +17,9 @@
         <v-btn
           flat color="orange"
           @click="$emit('view')">View Details</v-btn>
-        <!--<v-btn
+        <v-btn
           flat color="orange"
-          @click="$emit('add')">Add to cart</v-btn>-->
+          @click="$emit('add')">Add to cart</v-btn>
       </v-card-actions>
     </v-card>
   </v-flex>
@@ -30,9 +30,6 @@
     name: 'cardlist',
     props: ['name', 'price', 'description', 'currency', 'photoLocation'],
     methods: {
-      loadUser (username) {
-        this.$router.push({ path: `/profile/${username}/` })
-      }
     }
   }
 </script>
