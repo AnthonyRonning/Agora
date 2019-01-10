@@ -53,7 +53,7 @@
               v-model="userSearch"
               append-icon="search"
               hide-details dark
-              label="User Search..."
+              label="Search for a specific user (Ex. 'cycryptr.id')"
               v-on:keyup.enter="searchUser"
             >
 

@@ -28,15 +28,15 @@
                       <v-container fill-height fluid>
                         <v-layout fill-height>
                           <v-flex xs12 align-end flexbox>
-                            <span class="headline">{{this.username}} </span>
+                            <!-- <span class="headline">{{this.username}} </span> -->
                           </v-flex>
                         </v-layout>
                       </v-container>
                     </v-img>
                     <v-card-title>
                       <div>
-                        <span>Name: {{this.publicInformation.name}}</span><br>
-                        <span>Email: {{this.publicInformation.email ? this.publicInformation.email : ''}}</span><br>
+                        <span class="username">{{this.username}}</span><br>
+                        <span>{{this.publicInformation.email ? this.publicInformation.email : ''}}</span><br>
                       </div>
                     </v-card-title>
                     <v-card-actions>

@@ -3,55 +3,65 @@
     <div class="AddItem">
       <div class="container">
         <div class="row">
+          <v-alert
+            :value="!hasCryptoAddress"
+            type="error"
+          >
+            A bitcoin address is required to add items to your store.
+          </v-alert>
           <div class="col-md-8 col-md-offset-2">
             <h2 class="user-info">
-              <v-card flat>
-                <v-form ref="validItemForm" v-model="validItem" lazy-validation>
-                  <v-text-field
-                    v-model="itemInformation.name"
-                    :rules="nameRules"
-                    :counter="20"
-                    label="Name"
-                    required
-                  ></v-text-field>
-                  <v-textarea
-                    v-model="itemInformation.description"
-                    :rules="descriptionRules"
-                    :counter="1000"
-                    label="Description"
-                    required
-                  ></v-textarea>
-                  <v-text-field
-                    v-model.number="itemInformation.price"
-                    type="number"
-                    :rules="priceRules"
-                    v-on:keypress="isNumber(event)"
-                    label="Price"
-                    required
-                  ></v-text-field>
-                  <v-select
-                    v-model="itemInformation.currency"
-                    required
-                    :items="currencyOptions"
-                    :rules="currencyRules"
-                    label="Currency"
-                  ></v-select>
-                  <upload-btn
-                    :fileChangedCallback="fileChanged"
-                    title="Upload Photo"
-                    accept=".png"
-                  >
+              <v-layout row wrap>
+                <v-flex xs12>
+                  <v-card>
+                    <v-form ref="validItemForm" v-model="validItem" lazy-validation>
+                      <v-text-field
+                        v-model="itemInformation.name"
+                        :rules="nameRules"
+                        :counter="20"
+                        label="Name"
+                        required
+                      ></v-text-field>
+                      <v-textarea
+                        v-model="itemInformation.description"
+                        :rules="descriptionRules"
+                        :counter="1000"
+                        label="Description"
+                        required
+                      ></v-textarea>
+                      <v-text-field
+                        v-model.number="itemInformation.price"
+                        type="number"
+                        :rules="priceRules"
+                        v-on:keypress="isNumber(event)"
+                        label="Price"
+                        required
+                      ></v-text-field>
+                      <v-select
+                        v-model="itemInformation.currency"
+                        required
+                        :items="currencyOptions"
+                        :rules="currencyRules"
+                        label="Currency"
+                      ></v-select>
+                      <upload-btn
+                        :fileChangedCallback="fileChanged"
+                        title="Upload Photo"
+                        accept=".png"
+                      >
 
-                  </upload-btn>
-                  <v-btn
-                    :disabled="!validItem"
-                    @click="submitItem"
-                  >
-                    submit
-                  </v-btn>
-                  <v-btn @click="clearItem">clear</v-btn>
-                </v-form>
-              </v-card>
+                      </upload-btn>
+                      <v-btn
+                        :disabled="!validItem || !hasCryptoAddress"
+                        @click="submitItem"
+                      >
+                        submit
+                      </v-btn>
+                      <v-btn @click="clearItem">clear</v-btn>
+                    </v-form>
+                  </v-card>
+                </v-flex>
+              </v-layout>
             </h2>
           </div>
         </div>
@@ -66,6 +76,7 @@
   var ITEMS_FILE = 'public/items.json'
   var ITEM_DIR_LOC = 'public/item/'
   var ITEM_PHOTO_DIR_LOC = 'public/item/photos/'
+  var PUBLIC_STORAGE_FILE = 'public/publicInformation.json'
 
   export default {
     name: 'AddItem',
@@ -103,10 +114,12 @@
         photoLocation: ''
       },
       itemPhotoFile: '',
-      items: []
+      items: [],
+      hasCryptoAddress: true
     }),
     mounted () {
       this.fetchItems()
+      this.checkHasCryptoAddress()
     },
     methods: {
       submitItem () {
@@ -178,6 +191,17 @@
       },
       fileChanged (file) {
         this.itemPhotoFile = file
+      },
+      checkHasCryptoAddress () {
+        const blockstack = this.blockstack
+        // Get Public Info
+        blockstack.getFile(PUBLIC_STORAGE_FILE, { decrypt: false }) // decryption is enabled by default
+          .then((publicInformationJson) => {
+            if (publicInformationJson !== null) {
+              var publicInformation = JSON.parse(publicInformationJson || '[]')
+              this.hasCryptoAddress = !!publicInformation.bitcoinAddress
+            }
+          })
       }
     },
     components: {
@@ -218,5 +242,8 @@
         color: red;
       }
     }
+  }
+  .user-info {
+    margin-left: 10px;
   }
 </style>

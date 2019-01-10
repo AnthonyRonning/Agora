@@ -4,19 +4,19 @@
       <v-img
         class="white--text"
         height="200px"
-        src="https://cdn.vuetifyjs.com/images/cards/docks.jpg"
+        src='/avatar-placeholder.png'
       >
         <v-container fill-height fluid>
           <v-layout fill-height>
             <v-flex xs12 align-end flexbox>
-              <span class="headline">{{ title }} </span>
+              <!-- <span class="headline">{{ title }} </span> -->
             </v-flex>
           </v-layout>
         </v-container>
       </v-img>
       <v-card-title>
         <div>
-          <span>Name: {{ username }} </span><br>
+          <span class="username">{{ username }} </span><br>
           <span>Description: {{ description }}</span><br>
         </div>
       </v-card-title>
@@ -42,5 +42,11 @@
 </script>
 
 <style scoped>
+  .headline {
+    color: #333333;
+  }
+  .username {
+    font-size: 20px;
+  }
 
 </style>

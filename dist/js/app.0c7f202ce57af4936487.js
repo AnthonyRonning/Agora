@@ -335,6 +335,7 @@ var logger = __webpack_require__(11);
 var ITEMS_FILE = 'public/items.json';
 var ITEM_DIR_LOC = 'public/item/';
 var ITEM_PHOTO_DIR_LOC = 'public/item/photos/';
+var PUBLIC_STORAGE_FILE = 'public/publicInformation.json';
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: 'AddItem',
@@ -373,11 +374,13 @@ var ITEM_PHOTO_DIR_LOC = 'public/item/photos/';
         photoLocation: ''
       },
       itemPhotoFile: '',
-      items: []
+      items: [],
+      hasCryptoAddress: true
     };
   },
   mounted: function mounted() {
     this.fetchItems();
+    this.checkHasCryptoAddress();
   },
 
   methods: {
@@ -449,6 +452,18 @@ var ITEM_PHOTO_DIR_LOC = 'public/item/photos/';
     },
     fileChanged: function fileChanged(file) {
       this.itemPhotoFile = file;
+    },
+    checkHasCryptoAddress: function checkHasCryptoAddress() {
+      var _this3 = this;
+
+      var blockstack = this.blockstack;
+
+      blockstack.getFile(PUBLIC_STORAGE_FILE, { decrypt: false }).then(function (publicInformationJson) {
+        if (publicInformationJson !== null) {
+          var publicInformation = JSON.parse(publicInformationJson || '[]');
+          _this3.hasCryptoAddress = !!publicInformation.bitcoinAddress;
+        }
+      });
     }
   },
   components: {
@@ -780,9 +795,17 @@ var PUBLIC_STORAGE_FILE = 'public/publicInformation.json';
       emailRules: [function (v) {
         return v.length === 0 || /.+@.+/.test(v) || 'E-mail must be valid';
       }],
+      descriptionRules: [function (v) {
+        return v == null || v.length <= 1000 || 'Description must be less than 1000 characters';
+      }],
+      bitcoinAddressRules: [function (v) {
+        return v == null || v.length <= 35 || 'Max size of a bitcoin public key is 35 characters';
+      }],
       publicInformation: {
         name: '',
-        email: ''
+        email: '',
+        description: '',
+        bitcoinAddress: ''
       },
       phoneField_Private: '',
       emailField_Private: '',
@@ -2277,15 +2300,25 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
     staticClass: "container"
   }, [_c('div', {
     staticClass: "row"
-  }, [_c('div', {
+  }, [_c('v-alert', {
+    attrs: {
+      "value": !_vm.hasCryptoAddress,
+      "type": "error"
+    }
+  }, [_vm._v("\n          A bitcoin address is required to add items to your store.\n        ")]), _vm._v(" "), _c('div', {
     staticClass: "col-md-8 col-md-offset-2"
   }, [_c('h2', {
     staticClass: "user-info"
-  }, [_c('v-card', {
+  }, [_c('v-layout', {
     attrs: {
-      "flat": ""
+      "row": "",
+      "wrap": ""
     }
-  }, [_c('v-form', {
+  }, [_c('v-flex', {
+    attrs: {
+      "xs12": ""
+    }
+  }, [_c('v-card', [_c('v-form', {
     ref: "validItemForm",
     attrs: {
       "lazy-validation": ""
@@ -2366,16 +2399,16 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
     }
   }), _vm._v(" "), _c('v-btn', {
     attrs: {
-      "disabled": !_vm.validItem
+      "disabled": !_vm.validItem || !_vm.hasCryptoAddress
     },
     on: {
       "click": _vm.submitItem
     }
-  }, [_vm._v("\n                  submit\n                ")]), _vm._v(" "), _c('v-btn', {
+  }, [_vm._v("\n                      submit\n                    ")]), _vm._v(" "), _c('v-btn', {
     on: {
       "click": _vm.clearItem
     }
-  }, [_vm._v("clear")])], 1)], 1)], 1)])])])])])
+  }, [_vm._v("clear")])], 1)], 1)], 1)], 1)], 1)])], 1)])])])
 },staticRenderFns: []}
 
 /***/ }),
@@ -2514,7 +2547,12 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
 /***/ (function(module, exports) {
 
 module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
-  return _c('v-app', [_c('div', {
+  return _c('v-app', [_c('v-container', {
+    attrs: {
+      "grid-list-md": "",
+      "fluid": ""
+    }
+  }, [_c('div', {
     staticClass: "hello"
   }, [_c('div', {
     staticClass: "container"
@@ -2581,6 +2619,32 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
       },
       expression: "publicInformation.email"
     }
+  }), _vm._v(" "), _c('v-textarea', {
+    attrs: {
+      "rules": _vm.descriptionRules,
+      "counter": 1000,
+      "label": "Description"
+    },
+    model: {
+      value: (_vm.publicInformation.description),
+      callback: function($$v) {
+        _vm.$set(_vm.publicInformation, "description", $$v)
+      },
+      expression: "publicInformation.description"
+    }
+  }), _vm._v(" "), _c('v-text-field', {
+    attrs: {
+      "rules": _vm.bitcoinAddressRules,
+      "counter": 35,
+      "label": "Bitcoin Address"
+    },
+    model: {
+      value: (_vm.publicInformation.bitcoinAddress),
+      callback: function($$v) {
+        _vm.$set(_vm.publicInformation, "bitcoinAddress", $$v)
+      },
+      expression: "publicInformation.bitcoinAddress"
+    }
   }), _vm._v(" "), _c('v-btn', {
     attrs: {
       "disabled": !_vm.validPublic
@@ -2643,7 +2707,7 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
     on: {
       "click": _vm.clearPrivate
     }
-  }, [_vm._v("clear")])], 1)], 1)], 1)], 1)], 1)])])])])])
+  }, [_vm._v("clear")])], 1)], 1)], 1)], 1)], 1)])])])])])], 1)
 },staticRenderFns: []}
 
 /***/ }),
@@ -2709,7 +2773,7 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
       "append-icon": "search",
       "hide-details": "",
       "dark": "",
-      "label": "User Search..."
+      "label": "Search for a specific user (Ex. 'cycryptr.id')"
     },
     on: {
       "keyup": function($event) {
@@ -2848,9 +2912,9 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
       "align-end": "",
       "flexbox": ""
     }
-  }, [_c('span', {
-    staticClass: "headline"
-  }, [_vm._v(_vm._s(this.username) + " ")])])], 1)], 1)], 1), _vm._v(" "), _c('v-card-title', [_c('div', [_c('span', [_vm._v("Name: " + _vm._s(this.publicInformation.name))]), _c('br'), _vm._v(" "), _c('span', [_vm._v("Email: " + _vm._s(this.publicInformation.email ? this.publicInformation.email : ''))]), _c('br')])]), _vm._v(" "), _c('v-card-actions', [_c('v-btn', {
+  })], 1)], 1)], 1), _vm._v(" "), _c('v-card-title', [_c('div', [_c('span', {
+    staticClass: "username"
+  }, [_vm._v(_vm._s(this.username))]), _c('br'), _vm._v(" "), _c('span', [_vm._v(_vm._s(this.publicInformation.email ? this.publicInformation.email : ''))]), _c('br')])]), _vm._v(" "), _c('v-card-actions', [_c('v-btn', {
     attrs: {
       "flat": "",
       "color": "orange"
@@ -2933,7 +2997,7 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
     staticClass: "white--text",
     attrs: {
       "height": "200px",
-      "src": "https://cdn.vuetifyjs.com/images/cards/docks.jpg"
+      "src": "/avatar-placeholder.png"
     }
   }, [_c('v-container', {
     attrs: {
@@ -2950,9 +3014,9 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
       "align-end": "",
       "flexbox": ""
     }
-  }, [_c('span', {
-    staticClass: "headline"
-  }, [_vm._v(_vm._s(_vm.title) + " ")])])], 1)], 1)], 1), _vm._v(" "), _c('v-card-title', [_c('div', [_c('span', [_vm._v("Name: " + _vm._s(_vm.username) + " ")]), _c('br'), _vm._v(" "), _c('span', [_vm._v("Description: " + _vm._s(_vm.description))]), _c('br')])]), _vm._v(" "), _c('v-card-actions', [_c('v-btn', {
+  })], 1)], 1)], 1), _vm._v(" "), _c('v-card-title', [_c('div', [_c('span', {
+    staticClass: "username"
+  }, [_vm._v(_vm._s(_vm.username) + " ")]), _c('br'), _vm._v(" "), _c('span', [_vm._v("Description: " + _vm._s(_vm.description))]), _c('br')])]), _vm._v(" "), _c('v-card-actions', [_c('v-btn', {
     attrs: {
       "flat": "",
       "color": "orange"
@@ -3178,4 +3242,4 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
 /***/ })
 
 },[259]);
-//# sourceMappingURL=app.47ca06d7ff1aa5877fe9.js.map
+//# sourceMappingURL=app.0c7f202ce57af4936487.js.map

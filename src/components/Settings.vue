@@ -1,5 +1,6 @@
 <template>
   <v-app>
+    <v-container grid-list-md fluid>
     <div class="hello">
       <div class="container">
         <div class="row">
@@ -35,6 +36,18 @@
                         v-model="publicInformation.email"
                         :rules="emailRules"
                         label="E-mail"
+                      ></v-text-field>
+                      <v-textarea
+                        v-model="publicInformation.description"
+                        :rules="descriptionRules"
+                        :counter="1000"
+                        label="Description"
+                      ></v-textarea>
+                      <v-text-field
+                        v-model="publicInformation.bitcoinAddress"
+                        :rules="bitcoinAddressRules"
+                        :counter="35"
+                        label="Bitcoin Address"
                       ></v-text-field>
 
                       <v-btn
@@ -75,6 +88,7 @@
         </div>
       </div>
     </div>
+    </v-container>
   </v-app>
 </template>
 
@@ -99,9 +113,17 @@ export default {
     emailRules: [
       v => (v.length === 0 || /.+@.+/.test(v)) || 'E-mail must be valid'
     ],
+    descriptionRules: [
+      v => (v == null || v.length <= 1000) || 'Description must be less than 1000 characters'
+    ],
+    bitcoinAddressRules: [
+      v => (v == null || v.length <= 35) || 'Max size of a bitcoin public key is 35 characters'
+    ],
     publicInformation: {
       name: '',
-      email: ''
+      email: '',
+      description: '',
+      bitcoinAddress: ''
     },
     phoneField_Private: '',
     emailField_Private: '',
