@@ -119,7 +119,10 @@
 
       deleteItem (item) {
         const index = this.cart.itemList.indexOf(item)
-        confirm('Are you sure you want to delete this item?') && this.cart.itemList.splice(index, 1)
+
+        confirm('Are you sure you want to delete this item?') &&
+        this.cart.itemList.splice(index, 1) &&
+        this.$emit('updateCart', this.cart)
       },
 
       close () {

@@ -1,6 +1,25 @@
 <template>
   <v-container>
     <v-container grid-list-md fluid>
+      <div class="text-lg-center"
+           v-if="loading">
+        <v-progress-circular
+          :size="50"
+          color="primary"
+          indeterminate
+        ></v-progress-circular>
+      </div>
+      <div class="text-lg-center"
+           v-if="cartEmpty && !loading">
+        <v-layout row wrap>
+          <v-flex>
+            <v-card
+              height="100px">
+              <br/><h2>Cart is emtpy, get buying!</h2>
+            </v-card>
+          </v-flex>
+        </v-layout>
+      </div>
       <v-layout row wrap>
         <v-flex xs12
                 v-for="(cart, index) in cartList"
@@ -9,7 +28,8 @@
           <v-card>
             <carttable
             v-bind:vendorName="cart.vendor"
-            v-bind:cart="cart"></carttable>
+            v-bind:cart="cart"
+            v-on:updateCart="updateCart"></carttable>
           </v-card>
         </v-flex>
       </v-layout>
@@ -29,7 +49,8 @@
       blockstack: window.blockstack,
       cartList: [],
       vendorsItems: [],
-      cartReady: false
+      cartReady: false,
+      loading: true
     }),
     created () {
       this.getCartList()
@@ -39,9 +60,13 @@
         this.blockstack.getFile(CART_LIST, { decrypt: true }) // decryption is enabled by default
           .then((CartsJson) => {
             var carts = JSON.parse(CartsJson || '[]')
-            this.cartList = carts
-            logger.info('grabbed cart list for user', { cart: this.cartList })
-            this.getCartDetails()
+            if (carts.length !== 0) {
+              this.cartList = carts
+              logger.info('grabbed cart list for user', {cart: this.cartList})
+              this.getCartDetails()
+            } else {
+              this.loading = false
+            }
           })
       },
       getCartDetails () {
@@ -63,11 +88,10 @@
                   items: storeItems
                 }
                 this.matchVendorItems(vendorItems)
-              }
+              } else {}
             })
             .catch((storeItemsError) => {
               logger.error('could not resolve store items: ' + storeItemsError)
-              // this.loading = false
             })
         }
       },
@@ -84,8 +108,9 @@
         }
 
         // this vendor cart is now ready, check for if all carts are ready now
-        // todo not ideal, at least add loading symbole
+        // todo not ideal
         this.cartList[vI].ready = true
+        this.loading = false
         var ready = this.cartList.every(cart => cart.ready === true)
         if (ready === true) {
           this.cartReady = true
@@ -97,6 +122,41 @@
         item.price = storeItem.price
         item.name = storeItem.name
         return item
+      },
+      updateCart (updatedCart) {
+        // get cart list
+        this.blockstack.getFile(CART_LIST, { decrypt: true }) // decryption is enabled by default
+          .then((CartsJson) => {
+            var carts = JSON.parse(CartsJson || '[]')
+
+            // check if vendor in cart
+            if (carts.length !== 0) {
+              var cartIndex = carts.findIndex(x => x.vendor === updatedCart.vendor)
+
+              // vendor not found in cart, not sure what to do, return
+              if (cartIndex === -1) {
+                return
+              } else {
+                // vendor found in cart, delete if empty or update list
+                if (updatedCart.itemList.length === 0) {
+                  carts.splice(cartIndex, 1)
+                } else {
+                  carts[cartIndex].itemList = updatedCart.itemList
+                }
+              }
+            } else {
+              // cart list is empty
+            }
+
+            // save cart list
+            logger.info('Saving items list', { carts: carts })
+            return this.blockstack.putFile(CART_LIST, JSON.stringify(carts), { encrypt: true })
+          })
+      }
+    },
+    computed: {
+      cartEmpty () {
+        return this.cartList === null || this.cartList === undefined || this.cartList.length === 0
       }
     },
     components: {
