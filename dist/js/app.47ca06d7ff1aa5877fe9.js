@@ -979,6 +979,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
 
 var logger = __webpack_require__(11);
+var CART_LIST = 'private/cart.json';
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: 'appheader',
@@ -988,10 +989,30 @@ var logger = __webpack_require__(11);
       blockstack: window.blockstack,
       userSearch: '',
       drawer: null,
-      navItems: [{ title: 'Home', icon: 'dashboard', location: 'Home' }, { title: 'Add Item', icon: 'add', location: 'AddItem' }, { title: 'About', icon: 'question_answer', location: 'Settings' }]
+      navItems: [{ title: 'Home', icon: 'dashboard', location: 'Home' }, { title: 'Add Item', icon: 'add', location: 'AddItem' }, { title: 'About', icon: 'question_answer', location: 'Settings' }],
+      totalCartItems: 0
     };
   },
+  created: function created() {
+    this.getCartItems();
+  },
+
   methods: {
+    getCartItems: function getCartItems() {
+      var _this = this;
+
+      this.blockstack.getFile(CART_LIST, { decrypt: true }).then(function (CartsJson) {
+        var carts = JSON.parse(CartsJson || '[]');
+        if (carts.length !== 0) {
+          logger.info('grabbed cart list for user', { cart: carts });
+          var totalItems = 0;
+          for (var i = 0; i < carts.length; i++) {
+            totalItems += carts[i].itemList.length;
+          }
+          _this.totalCartItems = totalItems;
+        }
+      });
+    },
     searchUser: function searchUser() {
       logger.info('searching for user: ' + this.userSearch);
       this.$router.push({ path: '/profile/' + this.userSearch + '/' });
@@ -2722,12 +2743,12 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
       "color": "green",
       "overlap": ""
     }
-  }, [_c('span', {
+  }, [(_vm.totalCartItems) ? _c('span', {
     attrs: {
       "slot": "badge"
     },
     slot: "badge"
-  }, [_vm._v("6")]), _vm._v(" "), _c('v-icon', {
+  }, [_vm._v(_vm._s(_vm.totalCartItems))]) : _vm._e(), _vm._v(" "), _c('v-icon', {
     attrs: {
       "medium": ""
     }
@@ -3157,4 +3178,4 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
 /***/ })
 
 },[259]);
-//# sourceMappingURL=app.e662f3d0627057e71c5c.js.map
+//# sourceMappingURL=app.47ca06d7ff1aa5877fe9.js.map

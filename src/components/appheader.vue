@@ -67,7 +67,8 @@
             <v-btn icon
                    :to="{name: 'Cart'}">
               <v-badge color="green" overlap>
-                <span slot="badge">6</span>
+                <span slot="badge"
+                      v-if="totalCartItems">{{ totalCartItems }}</span>
                 <v-icon
                   medium
                 >
@@ -107,6 +108,7 @@
 
 <script>
   const logger = require('heroku-logger')
+  var CART_LIST = 'private/cart.json'
 
   export default {
     name: 'appheader',
@@ -119,9 +121,27 @@
         { title: 'Home', icon: 'dashboard', location: 'Home' },
         { title: 'Add Item', icon: 'add', location: 'AddItem' },
         { title: 'About', icon: 'question_answer', location: 'Settings' }
-      ]
+      ],
+      totalCartItems: 0
     }),
+    created () {
+      this.getCartItems()
+    },
     methods: {
+      getCartItems () {
+        this.blockstack.getFile(CART_LIST, { decrypt: true }) // decryption is enabled by default
+          .then((CartsJson) => {
+            var carts = JSON.parse(CartsJson || '[]')
+            if (carts.length !== 0) {
+              logger.info('grabbed cart list for user', {cart: carts})
+              var totalItems = 0
+              for (var i = 0; i < carts.length; i++) {
+                totalItems += carts[i].itemList.length
+              }
+              this.totalCartItems = totalItems
+            }
+          })
+      },
       searchUser () {
         logger.info('searching for user: ' + this.userSearch)
         this.$router.push({ path: `/profile/${this.userSearch}/` })
