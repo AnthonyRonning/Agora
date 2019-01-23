@@ -1,6 +1,6 @@
 <template>
   <v-container>
-    <v-container grid-list-md fluid>
+    <v-container grid-list-xl fluid>
       <div class="text-lg-center"
            v-if="loading">
         <v-progress-circular
@@ -15,7 +15,7 @@
           <v-flex>
             <v-card
               height="100px">
-              <br/><h2>Cart is emtpy, get buying!</h2>
+              <br/><h2>Cart is empty, get buying!</h2>
             </v-card>
           </v-flex>
         </v-layout>
@@ -29,7 +29,8 @@
             <carttable
             v-bind:vendorName="cart.vendor"
             v-bind:cart="cart"
-            v-on:updateCart="updateCart"></carttable>
+            v-on:updateCart="updateCart"
+            v-on:createOrder="createOrder"></carttable>
           </v-card>
         </v-flex>
       </v-layout>
@@ -40,36 +41,47 @@
 <script>
   import carttable from '../components/carttable'
   const logger = require('heroku-logger')
+  const { encryptECIES } = require('blockstack/lib/encryption')
+
   var CART_LIST = 'private/cart.json'
+  var ORDER_LIST = 'private/orders.json'
+  var ORDER_DIR_LOC = 'private/orders/'
+  var SHARED_ORDER_DIR_LOC = 'shared/orders/'
   var STORE_ITEMS_LIST = 'public/items.json'
+  var PUBLIC_KEY = 'public/key.json'
 
   export default {
     name: 'Cart',
+    props: ['user'],
     data: () => ({
       blockstack: window.blockstack,
       cartList: [],
       vendorsItems: [],
       cartReady: false,
-      loading: true
+      loading: true,
+      orderComplete: false,
+      vendorOrderComplete: false
     }),
     created () {
-      this.getCartList()
+      this.getOrderList()
     },
     methods: {
-      getCartList () {
+      getOrderList () {
+        this.blockstack.getFile(PUBLIC_KEY, {decrypt: false})
+
         this.blockstack.getFile(CART_LIST, { decrypt: true }) // decryption is enabled by default
           .then((CartsJson) => {
             var carts = JSON.parse(CartsJson || '[]')
             if (carts.length !== 0) {
               this.cartList = carts
               logger.info('grabbed cart list for user', {cart: this.cartList})
-              this.getCartDetails()
+              this.getOrderDetails()
             } else {
               this.loading = false
             }
           })
       },
-      getCartDetails () {
+      getOrderDetails () {
         var blockstack = this.blockstack
 
         // load all vendors
@@ -152,6 +164,114 @@
             logger.info('Saving items list', { carts: carts })
             return this.blockstack.putFile(CART_LIST, JSON.stringify(carts), { encrypt: true })
           })
+      },
+      createOrder (cart) {
+        // get cart list
+        this.blockstack.getFile(CART_LIST, { decrypt: true }) // decryption is enabled by default
+          .then((CartsJson) => {
+            var carts = JSON.parse(CartsJson || '[]')
+            this.blockstack.getFile(ORDER_LIST, {decrypt: false}) // decryption is enabled by default
+              .then((OrdersJson) => {
+                var orderList = JSON.parse(OrdersJson || '[]')
+
+                // create order
+                var order = {
+                  vendor: cart.vendor,
+                  buyer: this.user.username,
+                  itemList: cart.itemList,
+                  cost: cart.itemList.map(v => v.price).reduce((sum, current) => sum + current, 0),
+                  paid: 0,
+                  txId: '',
+                  cryptocurrency: 'bitcoin', // todo variable currency
+                  fiatcurrency: 'USD', // todo variable currency
+                  status: 'created',
+                  dateCreated: new Date(),
+                  shippingAddress: null,
+                  dateOrdered: null,
+                  dateUpdated: null,
+                  dateShipped: null
+                }
+
+                order.id = this.createOrderId(cart.vendor, orderList)
+
+                // save order
+                logger.info('Saving order', {order: order})
+                this.blockstack.putFile(ORDER_DIR_LOC + order.id + '.json', JSON.stringify(order), {encrypt: true})
+
+                // encrypt order with vendor
+                const options = { username: cart.vendor, decrypt: false, verify: false }
+                this.blockstack.getFile(PUBLIC_KEY, options)
+                  .then((publicKeyJson) => {
+                    logger.info('grabbed public key for user', { username: cart.vendor })
+                    if (publicKeyJson !== null) {
+                      var pubKey = JSON.parse(publicKeyJson || '[]')
+                      this.blockstack.putFile(
+                        SHARED_ORDER_DIR_LOC + order.vendor + '/' + order.id + '.json',
+                        JSON.stringify(encryptECIES(pubKey, JSON.stringify(order))),
+                        {encrypt: false})
+                    }
+                  })
+                  .catch((publicInfoError) => {
+                    logger.error('could not resolve public info: ' + publicInfoError)
+                  })
+                  .finally(() => {
+                    this.vendorOrderComplete = true
+                    this.tryGoToOrders()
+                  })
+
+                // add order to order list
+                var orderListItem = {
+                  orderId: order.id,
+                  vendor: cart.vendor
+                }
+
+                // uncomment to wipe out
+                // orderList = JSON.parse('[]')
+                orderList.push(orderListItem)
+                logger.info('Saving order list', {orderList: orderList})
+                this.blockstack.putFile(ORDER_LIST, JSON.stringify(orderList), {encrypt: false})
+
+                // remove order from cart
+                if (carts.length !== 0) {
+                  var cartIndex = carts.findIndex(x => x.vendor === cart.vendor)
+
+                  // vendor not found in cart, not sure what to do, return
+                  if (cartIndex === -1) {
+                    return
+                  } else {
+                    // vendor found in cart, delete it
+                    carts.splice(cartIndex, 1)
+                  }
+                } else {
+                  // cart list is empty
+                }
+
+                // save cart list
+                logger.info('Saving items list', {carts: carts})
+                this.blockstack.putFile(CART_LIST, JSON.stringify(carts), {encrypt: true})
+              })
+              .finally(() => {
+                this.orderComplete = true
+                this.tryGoToOrders()
+              })
+          })
+      },
+      createOrderId (vendor, orderList) {
+        var isDup = false
+        var orderId = ''
+        do {
+          orderId = Math.floor(Math.random() * 99999999) + 1
+          if (orderList.length > 0) {
+            var index = orderList.findIndex(x => x.orderId === orderId)
+            isDup = index !== -1
+          }
+        } while (isDup)
+        return orderId
+      },
+      tryGoToOrders () {
+        if (this.vendorOrderComplete && this.orderComplete) {
+          this.$router.push({ path: `/orders` })
+        }
       }
     },
     computed: {

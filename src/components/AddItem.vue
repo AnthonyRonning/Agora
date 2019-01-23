@@ -103,7 +103,7 @@
         v => !!v || 'Currency is required'
       ],
       currencyOptions: [
-        'Bitcoin'
+        'USD'
       ],
       itemInformation: {
         id: '',

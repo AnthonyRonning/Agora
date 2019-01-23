@@ -8,36 +8,13 @@
         vertical
       ></v-divider>
       <v-spacer></v-spacer>
-      <v-dialog v-model="dialog" max-width="500px">
-        <v-btn :disabled="isEmpty" slot="activator" color="primary" dark class="mb-2">Pay now: ${{ totalPrice }}</v-btn>
-        <v-card>
-          <v-card-title>
-            <span class="headline">{{ cart.vendorName }}</span>
-          </v-card-title>
-<!--
-          <v-card-text>
-            <v-container grid-list-md>
-              <v-layout wrap>
-                <v-flex xs12 sm6 md4>
-                  <v-text-field v-model="editedItem.name" label="Item name"></v-text-field>
-                </v-flex>
-                <v-flex xs12 sm6 md4>
-                  <v-text-field v-model="editedItem.price" label="Price"></v-text-field>
-                </v-flex>
-                <v-flex xs12 sm6 md4>
-                  <v-text-field v-model="editedItem.quantity" label="Quantity"></v-text-field>
-                </v-flex>
-              </v-layout>
-            </v-container>
-          </v-card-text>
-
-          <v-card-actions>
-            <v-spacer></v-spacer>
-            <v-btn color="blue darken-1" flat @click="close">Cancel</v-btn>
-            <v-btn color="blue darken-1" flat @click="save">Save</v-btn>
-          </v-card-actions>-->
-        </v-card>
-      </v-dialog>
+      <v-btn
+        :disabled="isEmpty"
+        color="primary"
+        dark
+        class="mb-2"
+        @click="createOrder">Order now: ${{ totalPrice }}
+      </v-btn>
     </v-toolbar>
     <v-data-table
       :headers="headers"
@@ -47,7 +24,7 @@
     >
       <template slot="items" slot-scope="props">
         <td>{{ props.item.name }}</td>
-        <td class="text-xs-right">{{ props.item.price }}</td>
+        <td class="text-xs-right">${{ props.item.price }}</td>
         <td class="text-xs-right">{{ props.item.quantity }}</td>
         <td class="right layout px-3">
           <v-icon
@@ -123,6 +100,10 @@
         confirm('Are you sure you want to delete this item?') &&
         this.cart.itemList.splice(index, 1) &&
         this.$emit('updateCart', this.cart)
+      },
+
+      createOrder () {
+        this.$emit('createOrder', this.cart)
       },
 
       close () {

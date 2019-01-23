@@ -14,7 +14,7 @@
   import Appheader from '../components/appheader'
   const logger = require('heroku-logger')
 
-  logger.info('loading settings')
+  logger.info('loading viewitem')
   export default {
     name: 'settings-view',
     props: ['user'],

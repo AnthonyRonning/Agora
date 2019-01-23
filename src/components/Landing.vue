@@ -1,7 +1,7 @@
 <template>
   <div class="hello">
     <div>
-      <h1>Blockmart</h1>
+      <h1>Agora</h1>
       <p>A decentralized marketplace app built on <a href="https://blockstack.org" target="_blank">Blockstack</a></p>
       <button class="btn btn-default" @click.prevent="signIn">Sign In With Blockstack</button>
     </div>

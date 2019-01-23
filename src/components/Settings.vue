@@ -57,7 +57,8 @@
                         submit
                       </v-btn>
                       <v-btn @click="clearPublic">clear</v-btn>
-                    </v-form>                  </v-card>
+                    </v-form>
+                  </v-card>
                 </v-tab-item>
                 <v-tab-item>
                   <v-card flat>

@@ -1,4 +1,4 @@
-# BlockMart
+# Agora
 
 > A simple Vue.js marketplace app built for the decentralized web.
 

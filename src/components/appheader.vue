@@ -45,7 +45,7 @@
             >
             </v-toolbar-side-icon>
 
-            <v-toolbar-title class="white--text">BlockMart - Decentralized Marketplace</v-toolbar-title>
+            <v-toolbar-title class="white--text">Agora - Decentralized Marketplace</v-toolbar-title>
 
             <v-spacer></v-spacer>
 
@@ -120,6 +120,7 @@
       navItems: [
         { title: 'Home', icon: 'dashboard', location: 'Home' },
         { title: 'Add Item', icon: 'add', location: 'AddItem' },
+        { title: 'Orders', icon: 'business_center', location: 'Orders' },
         { title: 'About', icon: 'question_answer', location: 'Settings' }
       ],
       totalCartItems: 0

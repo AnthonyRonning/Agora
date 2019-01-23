@@ -45,6 +45,11 @@ let router = new Router({
       path: '/cart',
       name: 'Cart',
       component: require('@/views/CartView')
+    },
+    {
+      path: '/orders',
+      name: 'Orders',
+      component: require('@/views/OrdersView')
     }
   ]
 })

@@ -3,7 +3,7 @@
     <v-app>
       <main>
         <appheader v-bind:user=user></appheader>
-        <cart></cart>
+        <cart v-bind:user=user></cart>
       </main>
     </v-app>
   </div>
@@ -14,7 +14,7 @@
   import Appheader from '../components/appheader'
   const logger = require('heroku-logger')
 
-  logger.info('loading settings')
+  logger.info('loading cart')
   export default {
     name: 'settings-view',
     props: ['user'],
