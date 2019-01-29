@@ -170,7 +170,7 @@
         this.blockstack.getFile(CART_LIST, { decrypt: true }) // decryption is enabled by default
           .then((CartsJson) => {
             var carts = JSON.parse(CartsJson || '[]')
-            this.blockstack.getFile(ORDER_LIST, {decrypt: false}) // decryption is enabled by default
+            this.blockstack.getFile(ORDER_LIST, {decrypt: true}) // decryption is enabled by default
               .then((OrdersJson) => {
                 var orderList = JSON.parse(OrdersJson || '[]')
 
@@ -222,14 +222,15 @@
                 // add order to order list
                 var orderListItem = {
                   orderId: order.id,
-                  vendor: cart.vendor
+                  vendor: cart.vendor,
+                  customer: cart.buyer
                 }
 
                 // uncomment to wipe out
                 // orderList = JSON.parse('[]')
                 orderList.push(orderListItem)
                 logger.info('Saving order list', {orderList: orderList})
-                this.blockstack.putFile(ORDER_LIST, JSON.stringify(orderList), {encrypt: false})
+                this.blockstack.putFile(ORDER_LIST, JSON.stringify(orderList), {encrypt: true})
 
                 // remove order from cart
                 if (carts.length !== 0) {

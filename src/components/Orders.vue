@@ -58,7 +58,7 @@
     },
     methods: {
       getOrderList () {
-        this.blockstack.getFile(ORDER_LIST, { decrypt: false }) // decryption is enabled by default
+        this.blockstack.getFile(ORDER_LIST, { decrypt: true }) // decryption is enabled by default
           .then((OrderListJson) => {
             var orders = JSON.parse(OrderListJson || '[]')
             if (orders.length !== 0) {

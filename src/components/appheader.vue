@@ -34,7 +34,30 @@
                   <v-list-tile-title>{{ item.title }}</v-list-tile-title>
                 </v-list-tile-content>
               </v-list-tile>
+
+              <v-list-group
+                prepend-icon="account_circle"
+                value="false"
+              >
+                <v-list-tile slot="activator">
+                  <v-list-tile-title>Store</v-list-tile-title>
+                </v-list-tile>
+
+                <v-list-tile
+                  v-for="storeItem in navItemsStore"
+                  :key="storeItem.title"
+                  :to="{name: storeItem.location}"
+                >
+                  <v-list-tile-content>
+                    <v-list-tile-title>{{ storeItem.title }}</v-list-tile-title>
+                  </v-list-tile-content>
+                  <v-list-tile-action>
+                    <v-icon>{{ storeItem.icon }}</v-icon>
+                  </v-list-tile-action>
+                </v-list-tile>
+              </v-list-group>
             </v-list>
+
           </v-navigation-drawer>
 
           <v-toolbar dark color="primary">
@@ -119,9 +142,15 @@
       drawer: null,
       navItems: [
         { title: 'Home', icon: 'dashboard', location: 'Home' },
+        { title: 'Orders', icon: 'business_center', location: 'Orders' }
+      ],
+      navItemsStore: [
         { title: 'Add Item', icon: 'add', location: 'AddItem' },
-        { title: 'Orders', icon: 'business_center', location: 'Orders' },
-        { title: 'About', icon: 'question_answer', location: 'Settings' }
+        { title: 'Import Order', icon: 'add', location: 'ImportOrder' },
+        { title: 'Store Orders', icon: 'business_center', location: 'StoreOrders' }
+      ],
+      navItemsBottom: [
+        { title: 'Settings', icon: 'question_answer', location: 'Settings' }
       ],
       totalCartItems: 0
     }),

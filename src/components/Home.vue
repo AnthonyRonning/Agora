@@ -1,4 +1,6 @@
 <template>
+  <v-container>
+    <h2 align="center">Featured Stores</h2>
   <v-container fluid fill-height>
     <v-layout row wrap justify-center fill-height>
       <cardlist
@@ -10,6 +12,8 @@
         v-on:visit="loadUser(market.username)"
       ></cardlist>
     </v-layout>
+  </v-container>
+
   </v-container>
 </template>
 
@@ -31,24 +35,6 @@
           title: 'Cycryptr',
           username: 'cycryptr.id',
           description: 'Store of the coolest person'
-        },
-        {
-          id: 2,
-          title: 'Cycryptr',
-          username: 'cycryptr.id',
-          description: 'Store of the coolest person'
-        },
-        {
-          id: 3,
-          title: 'Cycryptr',
-          username: 'cycryptr.id',
-          description: 'Store of the coolest person'
-        },
-        {
-          id: 4,
-          title: 'test',
-          username: 'test.id',
-          description: 'Store of the lamest person'
         }
       ]
     }),
