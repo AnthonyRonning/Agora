@@ -921,7 +921,7 @@ var _require = __webpack_require__(38),
       nameRules: [function (v) {
         return !!v || 'Name is required';
       }, function (v) {
-        return v && v.length <= 20 || 'Name must be less than 20 characters';
+        return v && v.length <= 100 || 'Name must be less than 100 characters';
       }],
       orderNumberRules: [function (v) {
         return !!v || 'Order # is required';
@@ -4657,7 +4657,7 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
   }, [_c('v-text-field', {
     attrs: {
       "rules": _vm.nameRules,
-      "counter": 20,
+      "counter": 100,
       "label": "Customer Name",
       "required": ""
     },
@@ -5493,4 +5493,4 @@ module.exports = {"OP_FALSE":0,"OP_0":0,"OP_PUSHDATA1":76,"OP_PUSHDATA2":77,"OP_
 /***/ })
 
 },[262]);
-//# sourceMappingURL=app.c21c05ea5433eda8f14f.js.map
+//# sourceMappingURL=app.48c52031bd511b2775b8.js.map
