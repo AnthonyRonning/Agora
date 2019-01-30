@@ -499,6 +499,8 @@ var PUBLIC_STORAGE_FILE = 'public/publicInformation.json';
           var publicInformation = JSON.parse(publicInformationJson || '[]');
           _this3.hasCryptoAddress = !!publicInformation.bitcoinAddress;
         }
+      }).catch(function () {
+        _this3.hasCryptoAddress = false;
       });
     }
   },
@@ -4787,7 +4789,7 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
     staticClass: "user-info"
   }, [_c('v-tabs', {
     attrs: {
-      "color": "cyan",
+      "color": "primary",
       "dark": "",
       "centered": "",
       "slider-color": "yellow"
@@ -5491,4 +5493,4 @@ module.exports = {"OP_FALSE":0,"OP_0":0,"OP_PUSHDATA1":76,"OP_PUSHDATA2":77,"OP_
 /***/ })
 
 },[262]);
-//# sourceMappingURL=app.3253785b86e590afd274.js.map
+//# sourceMappingURL=app.c21c05ea5433eda8f14f.js.map

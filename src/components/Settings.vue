@@ -8,7 +8,7 @@
             <h2 class="user-info">
 
               <v-tabs
-                color="cyan"
+                color="primary"
                 dark
                 centered
                 slider-color="yellow"

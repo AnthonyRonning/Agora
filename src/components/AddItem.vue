@@ -202,6 +202,9 @@
               this.hasCryptoAddress = !!publicInformation.bitcoinAddress
             }
           })
+          .catch(() => {
+            this.hasCryptoAddress = false
+          })
       }
     },
     components: {
