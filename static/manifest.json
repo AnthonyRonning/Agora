@@ -1,14 +1,14 @@
 {
   "name": "Agora",
-  "start_url": "https://agora.herokuapp.com",
+  "start_url": "https://www.agorashops.net",
   "description": "A simple contacts sharing app built on blockstack",
   "icons": [{
-    "src": "https://agora.herokuapp.com/logo.png",
+    "src": "https://www.agorashops.net/logo.png",
     "sizes": "400x400",
     "type": "image/png"
   },
   {
-    "src": "https://agora.herokuapp.com/avatar-placeholder.png",
+    "src": "https://www.agorashops.net/avatar-placeholder.png",
     "sizes": "400x400",
     "type": "image/png"
   }]

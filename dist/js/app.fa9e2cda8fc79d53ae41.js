@@ -4608,7 +4608,11 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
 /***/ (function(module, exports) {
 
 module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
-  return _c('v-app', [_c('div', {
+  return _c('v-app', [_c('h2', {
+    attrs: {
+      "align": "center"
+    }
+  }, [_vm._v("Import Order")]), _vm._v(" "), _c('div', {
     staticClass: "ImportOrder"
   }, [_c('div', {
     staticClass: "container"
@@ -5483,4 +5487,4 @@ module.exports = {"OP_FALSE":0,"OP_0":0,"OP_PUSHDATA1":76,"OP_PUSHDATA2":77,"OP_
 /***/ })
 
 },[262]);
-//# sourceMappingURL=app.ece4c1f736d39da75e3b.js.map
+//# sourceMappingURL=app.fa9e2cda8fc79d53ae41.js.map
