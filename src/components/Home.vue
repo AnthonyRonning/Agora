@@ -56,6 +56,11 @@
               this.blockstack.putFile(PUBLIC_KEY, JSON.stringify(pubKey), { encrypt: false })
             }
           })
+          .catch(() => {
+            var pubKey = getPublicKeyFromPrivate(this.blockstack.loadUserData().appPrivateKey)
+            logger.info('Could not detect public key stored, saving..', { publicKey: pubKey })
+            this.blockstack.putFile(PUBLIC_KEY, JSON.stringify(pubKey), { encrypt: false })
+          })
       }
     },
     components: {

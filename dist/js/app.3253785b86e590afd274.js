@@ -871,6 +871,10 @@ var logger = __webpack_require__(7);
           logger.info('Saving public key', { publicKey: pubKey });
           _this.blockstack.putFile(PUBLIC_KEY, __WEBPACK_IMPORTED_MODULE_0_babel_runtime_core_js_json_stringify___default()(pubKey), { encrypt: false });
         }
+      }).catch(function () {
+        var pubKey = getPublicKeyFromPrivate(_this.blockstack.loadUserData().appPrivateKey);
+        logger.info('Could not detect public key stored, saving..', { publicKey: pubKey });
+        _this.blockstack.putFile(PUBLIC_KEY, __WEBPACK_IMPORTED_MODULE_0_babel_runtime_core_js_json_stringify___default()(pubKey), { encrypt: false });
       });
     }
   },
@@ -5487,4 +5491,4 @@ module.exports = {"OP_FALSE":0,"OP_0":0,"OP_PUSHDATA1":76,"OP_PUSHDATA2":77,"OP_
 /***/ })
 
 },[262]);
-//# sourceMappingURL=app.fa9e2cda8fc79d53ae41.js.map
+//# sourceMappingURL=app.3253785b86e590afd274.js.map
