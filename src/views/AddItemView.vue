@@ -3,7 +3,7 @@
     <v-app>
       <main>
         <appheader v-bind:user=user></appheader>
-        <add-item></add-item>
+        <add-item v-bind:user=user></add-item>
       </main>
     </v-app>
   </div>

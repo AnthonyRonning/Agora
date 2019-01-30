@@ -410,6 +410,7 @@ var PUBLIC_STORAGE_FILE = 'public/publicInformation.json';
         photoLocation: ''
       },
       itemPhotoFile: '',
+      addItemComplete: false,
       items: [],
       hasCryptoAddress: true
     };
@@ -458,7 +459,15 @@ var PUBLIC_STORAGE_FILE = 'public/publicInformation.json';
             logger.info('Saving items list', { item: _this.items });
             return blockstack.putFile(ITEMS_FILE, __WEBPACK_IMPORTED_MODULE_0_babel_runtime_core_js_json_stringify___default()(_this.items), { encrypt: false });
           }
+        }).finally(function () {
+          _this.addItemComplete = true;
+          _this.tryGoToItems();
         });
+      }
+    },
+    tryGoToItems: function tryGoToItems() {
+      if (this.addItemComplete) {
+        this.$router.push({ path: '/profile/' + this.user.username + '/' });
       }
     },
     clearItem: function clearItem() {
@@ -4197,7 +4206,11 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
     attrs: {
       "user": _vm.user
     }
-  }), _vm._v(" "), _c('add-item')], 1)])], 1)
+  }), _vm._v(" "), _c('add-item', {
+    attrs: {
+      "user": _vm.user
+    }
+  })], 1)])], 1)
 },staticRenderFns: []}
 
 /***/ }),
@@ -5493,4 +5506,4 @@ module.exports = {"OP_FALSE":0,"OP_0":0,"OP_PUSHDATA1":76,"OP_PUSHDATA2":77,"OP_
 /***/ })
 
 },[262]);
-//# sourceMappingURL=app.48c52031bd511b2775b8.js.map
+//# sourceMappingURL=app.87ce19c5851d5de77fb8.js.map

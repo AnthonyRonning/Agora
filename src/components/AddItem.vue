@@ -114,6 +114,7 @@
         photoLocation: ''
       },
       itemPhotoFile: '',
+      addItemComplete: false,
       items: [],
       hasCryptoAddress: true
     }),
@@ -164,6 +165,15 @@
                 return blockstack.putFile(ITEMS_FILE, JSON.stringify(this.items), { encrypt: false })
               }
             })
+            .finally(() => {
+              this.addItemComplete = true
+              this.tryGoToItems()
+            })
+        }
+      },
+      tryGoToItems () {
+        if (this.addItemComplete) {
+          this.$router.push({ path: `/profile/${this.user.username}/` })
         }
       },
       clearItem () {
