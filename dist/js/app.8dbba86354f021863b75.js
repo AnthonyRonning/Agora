@@ -4223,7 +4223,17 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
     attrs: {
       "align": "center"
     }
-  }, [_vm._v("Featured Stores")]), _vm._v(" "), _c('v-container', {
+  }, [_vm._v("Featured Stores\n    "), _c('v-tooltip', {
+    attrs: {
+      "bottom": ""
+    }
+  }, [_c('v-icon', {
+    attrs: {
+      "slot": "activator",
+      "color": "blue"
+    },
+    slot: "activator"
+  }, [_vm._v("info")]), _vm._v(" "), _c('span', [_vm._v("Email cycryptr@protonmail.com to get listed.")])], 1)], 1), _vm._v(" "), _c('v-container', {
     attrs: {
       "fluid": "",
       "fill-height": ""
@@ -5506,4 +5516,4 @@ module.exports = {"OP_FALSE":0,"OP_0":0,"OP_PUSHDATA1":76,"OP_PUSHDATA2":77,"OP_
 /***/ })
 
 },[262]);
-//# sourceMappingURL=app.87ce19c5851d5de77fb8.js.map
+//# sourceMappingURL=app.8dbba86354f021863b75.js.map

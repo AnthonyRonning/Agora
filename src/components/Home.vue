@@ -1,6 +1,14 @@
 <template>
   <v-container>
-    <h2 align="center">Featured Stores</h2>
+    <h2 align="center">Featured Stores
+      <v-tooltip bottom>
+        <v-icon
+          slot="activator"
+          color="blue"
+        >info</v-icon>
+        <span>Email cycryptr@protonmail.com to get listed.</span>
+      </v-tooltip>
+    </h2>
   <v-container fluid fill-height>
     <v-layout row wrap justify-center fill-height>
       <cardlist
