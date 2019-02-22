@@ -1478,7 +1478,7 @@ var PUBLIC_STORAGE_FILE = 'public/publicInformation.json';
         return v == null || v.length <= 1000 || 'Description must be less than 1000 characters';
       }],
       bitcoinAddressRules: [function (v) {
-        return v == null || v.length <= 35 || 'Max size of a bitcoin public key is 35 characters';
+        return v == null || v.length <= 42 || 'Max size of a bitcoin public key is 42 characters';
       }],
       publicInformation: {
         name: '',
@@ -5737,7 +5737,7 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
   }), _vm._v(" "), _c('v-text-field', {
     attrs: {
       "rules": _vm.bitcoinAddressRules,
-      "counter": 35,
+      "counter": 42,
       "label": "Bitcoin Address"
     },
     model: {
@@ -6355,4 +6355,4 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
 
 /***/ })
 ],[284]);
-//# sourceMappingURL=app.d444ac5566fe19456118.js.map
+//# sourceMappingURL=app.0dead5169276259fca76.js.map

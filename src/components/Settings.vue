@@ -46,7 +46,7 @@
                       <v-text-field
                         v-model="publicInformation.bitcoinAddress"
                         :rules="bitcoinAddressRules"
-                        :counter="35"
+                        :counter="42"
                         label="Bitcoin Address"
                       ></v-text-field>
 
@@ -118,7 +118,7 @@ export default {
       v => (v == null || v.length <= 1000) || 'Description must be less than 1000 characters'
     ],
     bitcoinAddressRules: [
-      v => (v == null || v.length <= 35) || 'Max size of a bitcoin public key is 35 characters'
+      v => (v == null || v.length <= 42) || 'Max size of a bitcoin public key is 42 characters'
     ],
     publicInformation: {
       name: '',
