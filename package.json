@@ -8,11 +8,12 @@
     "dev": "node build/dev-server.js",
     "start": "node server.js",
     "build": "node build/build.js",
-    "lint": "eslint --ext .js,.vue src"
+    "lint": "eslint --ext .js,.vue src",
+    "heroku-postbuild": "echo Skip build on Heroku"
   },
   "dependencies": {
     "axios": "^0.16.1",
-    "blockstack": "18.0.4",
+    "blockstack": "18.3.0",
     "bootstrap-sass": "^3.3.7",
     "connect-history-api-fallback": "^1.5.0",
     "cors": "^2.8.4",
@@ -80,5 +81,6 @@
     "> 1%",
     "last 2 versions",
     "not ie <= 8"
-  ]
+  ],
+  "heroku-run-build-script": true
 }
