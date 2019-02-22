@@ -60,6 +60,11 @@ let router = new Router({
       path: '/importorder',
       name: 'ImportOrder',
       component: require('@/views/ImportOrderView')
+    },
+    {
+      path: '/storeitems',
+      name: 'StoreItems',
+      component: require('@/views/StoreItemsView')
     }
   ]
 })

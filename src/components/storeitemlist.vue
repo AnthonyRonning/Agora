@@ -13,7 +13,7 @@
           <span>Price: {{ price }} {{ currency }} </span><br>
         </div>
       </v-card-title>
-      <v-card-actions>
+      <v-card-actions class="justify-center">
         <v-btn
           flat color="orange"
           @click="$emit('view')">View Details</v-btn>

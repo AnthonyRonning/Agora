@@ -10,13 +10,13 @@
 
 import Landing from './components/Landing.vue'
 import Home from './components/Home.vue'
-import Raven from 'raven-js'
+// import Raven from 'raven-js'
 const logger = require('heroku-logger')
 
 export default {
   name: 'app',
   components: {Landing, Home},
-  mounted () {
+  beforeMount () {
     const blockstack = this.blockstack
     if (blockstack.isUserSignedIn()) {
       this.userData = blockstack.loadUserData()
@@ -24,7 +24,7 @@ export default {
       this.user.username = this.userData.username
 
       logger.info('user logged in', { username: this.user.username })
-      Raven.captureBreadcrumb({
+      /* Raven.captureBreadcrumb({
         message: 'User Signed In',
         category: 'action',
         data: {
@@ -35,7 +35,7 @@ export default {
       Raven.setUserContext({
         username: this.user.name(),
         id: this.user.username
-      })
+      }) */
     } else if (blockstack.isSignInPending()) {
       blockstack.handlePendingSignIn()
       .then((userData) => {
@@ -44,7 +44,7 @@ export default {
 
         logger.info('user logged in', { username: this.user.username })
 
-        Raven.captureBreadcrumb({
+        /* Raven.captureBreadcrumb({
           message: 'User Signed In',
           category: 'action',
           data: {
@@ -55,7 +55,7 @@ export default {
         Raven.setUserContext({
           username: this.user.name(),
           id: this.user.username
-        })
+        }) */
         window.location = window.location.origin
       })
     } else {

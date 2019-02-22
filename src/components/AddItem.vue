@@ -161,7 +161,7 @@
                 this.items.push(itemObj)
 
                 // saving items list
-                logger.info('Saving items list', { item: this.items })
+                logger.info('Saving items list', { items: this.items })
                 return blockstack.putFile(ITEMS_FILE, JSON.stringify(this.items), { encrypt: false })
               }
             })

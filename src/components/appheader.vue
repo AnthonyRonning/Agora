@@ -145,6 +145,7 @@
         { title: 'Orders', icon: 'business_center', location: 'Orders' }
       ],
       navItemsStore: [
+        { title: 'View Items', icon: 'pageview', location: 'StoreItems' },
         { title: 'Add Item', icon: 'add', location: 'AddItem' },
         { title: 'Import Order', icon: 'add', location: 'ImportOrder' },
         { title: 'Store Orders', icon: 'business_center', location: 'StoreOrders' }

@@ -1,6 +1,12 @@
 <template>
   <v-container>
     <v-container grid-list-xl fluid>
+      <v-alert
+        :value="removedItems"
+        type="warning"
+      >
+        Removed deleted item(s) from your cart.
+      </v-alert>
       <div class="text-lg-center"
            v-if="loading">
         <v-progress-circular
@@ -60,7 +66,8 @@
       cartReady: false,
       loading: true,
       orderComplete: false,
-      vendorOrderComplete: false
+      vendorOrderComplete: false,
+      removedItems: false
     }),
     created () {
       this.getOrderList()
@@ -114,6 +121,13 @@
           logger.debug('matched a vendor to vendorCart')
           for (var i = 0; i < this.cartList[vI].itemList.length; i++) {
             logger.debug('checking cart item #' + i)
+
+            // check if item still exists
+            if (!this.itemExists(this.cartList[vI].itemList[i], vendorItems.items)) {
+              this.cartList[vI].itemList.splice(i, 1)
+              this.removedItems = true
+              continue
+            }
             this.cartList[vI].itemList[i] = this.fillInVendorItemDetails(this.cartList[vI].itemList[i], vendorItems.items)
             logger.debug('new cart item info', { cartItem: this.cartList[vI].itemList[i] })
           }
@@ -126,7 +140,15 @@
         var ready = this.cartList.every(cart => cart.ready === true)
         if (ready === true) {
           this.cartReady = true
+          if (this.removedItems) {
+            logger.debug('saving new cart list because items were removed')
+            this.saveCartList()
+          }
         }
+      },
+      itemExists (item, storeItems) {
+        var storeItemIndex = storeItems.findIndex(x => x.id === item.id)
+        return storeItemIndex !== -1
       },
       fillInVendorItemDetails (item, storeItems) {
         var storeItem = storeItems.find(x => x.id === item.id)
@@ -134,6 +156,11 @@
         item.price = storeItem.price
         item.name = storeItem.name
         return item
+      },
+      saveCartList () {
+        // save cart list
+        logger.info('Saving items list', { carts: this.cartList })
+        return this.blockstack.putFile(CART_LIST, JSON.stringify(this.cartList), { encrypt: true })
       },
       updateCart (updatedCart) {
         // get cart list
