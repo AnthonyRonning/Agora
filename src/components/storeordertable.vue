@@ -420,12 +420,5 @@
 </script>
 
 <style scoped>
-  .container {
-    margin: 0 auto;
-    background: none;
-    display: inline;
-    overflow: auto;
-    z-index: 1;
-    width: 300px;
-  }
+  @import '../../node_modules/vuetify/dist/vuetify.min.css';
 </style>

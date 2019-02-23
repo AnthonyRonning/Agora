@@ -1,0 +1,113 @@
+.about-app {
+  padding-top: 223px;
+  margin-top: -95px;
+
+  .about-app__img {
+    text-align: center;
+    transition: all 0.3s;
+    display: flex;
+
+    img {
+      max-width: 83.3333%;
+      width: 100%;
+      box-shadow: 0 20px 30px rgba(125, 147, 178, 0.3);
+      transition: all 0.3s;
+      margin: 0 auto;
+      vertical-align: middle;
+      border-radius: 8px;
+    }
+  }
+
+  .about-app__img-wrap {
+    margin: auto;
+  }
+
+  .about-app__img--left {
+    float: left;
+  }
+
+  .about-app__icon {
+    height: 120px;
+  }
+
+  .about-app__description {
+    display: flex;
+  }
+
+  .about-app__description-content {
+    max-width: 490px;
+    width: 100%;
+    transition: all 0.3s;
+    margin: auto 0;
+  }
+
+  .about-app__description-content--left {
+    margin-left: auto;
+  }
+
+  .about-app__description-title {
+    margin: 35px 0;
+  }
+
+  .about-app__description-content {
+    p {
+      margin: 0;
+    }
+  }
+
+  .about-app__btn {
+    margin-top: 40px;
+  }
+
+  &.about-app--reverse {
+    flex-direction: row-reverse;
+  }
+
+  @media screen and (max-width: 1200px) {
+    margin-top: 105px;
+
+    .about-app__img {
+      text-align: right;
+    }
+
+    .about-app__description-content {
+      max-width: 100%;
+    }
+
+    &.about-app--reverse {
+
+      .about-app__img {
+        text-align: left;
+      }
+    }
+  }
+
+  @media screen and (max-width: 990px) {
+
+    .about-app__img {
+
+      img {
+        max-width: 100%;
+      }
+    }
+  }
+
+  @media screen and (max-width: 768px) {
+    text-align: center;
+    margin-top: 60px;
+
+    .about-app__description {
+      margin-bottom: 20px;
+    }
+
+    .about-app__description-title {
+      margin: 20px 0;
+    }
+
+    .about-app__btn {
+      margin-top: 15px;
+      margin-bottom: 40px;
+    }
+  }
+}
+

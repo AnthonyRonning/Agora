@@ -1,0 +1,70 @@
+.background {
+
+  &.background--right {
+    background-repeat: no-repeat;
+    background-position: 110%;
+    background-size: contain;
+  }
+
+  &.background--left {
+    background-repeat: no-repeat;
+    background-position: -5%;
+    background-size: contain;
+  }
+
+  &.background--bottom {
+    background-repeat: no-repeat;
+    background-position-y: bottom;
+    background-position-x: center;
+  }
+
+  &.background--clouds {
+    background-repeat-y: no-repeat;
+    background-position-y: bottom;
+    background-repeat: repeat-x;
+    height: 282px;
+    background-image: url(../img/img_bg_clouds.png);
+  }
+
+  &.background--mobile {
+    background-position: calc(100% - 15px) 50%;
+  }
+
+  &.background--features {
+    background-position: calc(100% - 45px) 50%;
+  }
+
+  &.background--wave {
+    background-position-y: bottom;
+    background-repeat-y: no-repeat;
+    background-repeat: repeat-x;
+    background-size: contain;
+    background-image: url(../img/img_bg_wave.png);
+  }
+
+  @media screen and (min-width: 1920px) {
+
+    &.background--wave {
+      background-size: 100vw 400px;
+    }
+  }
+
+  @media screen and (max-width: 990px) {
+
+    &.background--header {
+      background-image: none !important;
+    }
+  }
+
+  @media screen and (max-width: 768px) {
+
+    &.background--join {
+      background-size: auto 400px;
+    }
+
+    &.background--clouds {
+      height: 150px;
+      background-size: cover;
+    }
+  }
+}

@@ -39,6 +39,7 @@
 </script>
 
 <style scoped>
+  @import '../../node_modules/vuetify/dist/vuetify.min.css';
   .title {
     font-size: 10px;
   }

@@ -78,6 +78,7 @@
 </script>
 
 <style scoped>
+  @import '../../node_modules/vuetify/dist/vuetify.min.css';
   .store-card {
     margin: 10px
   }

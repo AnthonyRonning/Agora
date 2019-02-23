@@ -36,6 +36,7 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
+  @import '../../node_modules/vuetify/dist/vuetify.min.css';
 .hello {
   height: 100%;
   display: flex;

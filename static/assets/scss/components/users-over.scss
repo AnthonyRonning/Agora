@@ -1,0 +1,25 @@
+.users-over {
+  text-align: center;
+  margin: 250px 0 100px 0;
+
+  .users-over__text {
+    font-size: 60px;
+    font-weight: 200;
+    color: $color-text-title;
+    margin: 0;
+  }
+
+  .users-over__number {
+    font-weight: 800;
+    background: $color-button-accent;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+
+  @media screen and (max-width: 768px) {
+
+    .users-over__text {
+      font-size: 36px;
+    }
+  }
+}

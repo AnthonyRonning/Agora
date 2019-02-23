@@ -1,0 +1,51 @@
+.social-card{
+  position: relative;
+
+  .social-card__icon{
+    position: absolute;
+    right: 20px;
+    top: 20px;
+    font-size: 18px;
+
+    &.social-card__icon--twitter{
+      color: #59adeb;
+    }
+
+    &.social-card__icon--instagram{
+      color: #db2570;
+    }
+  }
+
+  .social-card__tweet{
+    font-size: 16px;
+    line-height: 1.5;
+    overflow: hidden;
+
+    a{
+      color: $color-accent;
+      transition: 0.3s;
+
+      &:hover{
+        color: $color-accent-hover;
+      }
+    }
+
+    .social-card__tweet-date{
+      font-size: 14px;
+      line-height: 1;
+      color: $color-gray-2;
+    }
+
+    .Emoji.Emoji--forText{
+      height: 18px;
+      max-width: 18px;
+    }
+  }
+
+  .social-card__tweet--load{
+
+    &:before{
+      content: 'Loading...';
+    }
+  }
+}

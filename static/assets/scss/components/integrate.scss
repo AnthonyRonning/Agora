@@ -1,0 +1,59 @@
+.integrate {
+  text-align: center;
+
+  .integrate__card {
+    padding: 60px 60px;
+    max-width: 490px;
+    margin: 0 auto;
+  }
+
+  .intagrate__logo {
+    position: relative;
+    margin-bottom: 30px;
+  }
+
+  .integrate__logo-svg {
+    position: absolute;
+    left: calc(50% - 70px);
+  }
+
+  .integrate__logo-title {
+    font-weight: 800;
+    color: $color-dark-blue;
+    display: inline-block;
+    font-size: $font-size-h3;
+    padding-left: 45px;
+    margin: 0;
+    vertical-align: top;
+    margin-top: 10px;
+  }
+
+  .integrate__description {
+    margin: 0;
+    line-height: 24px;
+    margin-bottom: 35px;
+  }
+
+  &.integrate--calculator {
+
+    .integrate__logo-svg {
+      position: inherit;
+      left: auto;
+    }
+
+    .integrate__logo-title {
+      padding-left: 0;
+    }
+
+    .intagrate__logo {
+      margin-bottom: 50px;
+    }
+  }
+
+  @media screen and (max-width: 768px) {
+
+    .integrate__card {
+      padding: 40px;
+    }
+  }
+}

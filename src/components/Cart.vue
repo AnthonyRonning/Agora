@@ -314,5 +314,6 @@
 </script>
 
 <style scoped>
+  @import '../../node_modules/vuetify/dist/vuetify.min.css';
 
 </style>

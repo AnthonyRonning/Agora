@@ -1,0 +1,72 @@
+.feedback {
+  position: relative;
+  margin-bottom: -60px;
+
+  .feedback__item {
+    margin-bottom: 60px;
+  }
+
+  .feedback__card {
+    padding: 34px 34px 38px 32px;
+    height: 100%;
+    margin-left: 15px;
+    margin-right: 15px;
+  }
+
+  .feedback__avatar {
+    height: 48px;
+    width: 48px;
+    object-fit: cover;
+    border-radius: 50%;
+    position: absolute;
+  }
+
+  .feedback__social {
+    position: absolute;
+    right: 60px;
+    color: #59adeb;
+    font-size: $font-size-t1;
+
+    &:hover {
+      color: #8ec4f0;
+    }
+  }
+
+  .feedback__header {
+    padding-left: 60px;
+    margin-bottom: 25px;
+  }
+
+  .feedback__name {
+    font-size: $font-size-t1;
+    line-height: 22px;
+    font-weight: 800;
+    color: $color-text-title;
+    margin: 0;
+  }
+
+  .feedback__nick {
+    font-size: 14px;
+    line-height: 16px;
+    color: $color-gray-2;
+    text-transform: lowercase;
+    margin: 0;
+  }
+
+  .feedback__main {
+    line-height: 24px;
+    margin: 0;
+  }
+
+  @media screen and (max-width: 768px) {
+    margin-bottom: -30px;
+
+    .feedback__item {
+      margin-bottom: 30px;
+    }
+
+    .feedback__card {
+      padding: 20px 15px;
+    }
+  }
+}

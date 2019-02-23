@@ -1,0 +1,244 @@
+.header-home {
+  margin-top: 190px;
+  overflow: hidden;
+
+  .header-home__title {
+    width: 490px;
+    margin-top: 90px;
+    margin-bottom: 35px;
+    transition: all 0.3s;
+  }
+
+  .header-home__title--big {
+    width: 100%;
+  }
+
+  .header-home__title--accent {
+    color: $color-accent;
+  }
+
+  .header-home__title--features {
+    width: 750px;
+    margin-bottom: 450px;
+  }
+
+  .header-home__title--desktop {
+    margin-top: 40px;
+  }
+
+  .header-home__description {
+    width: 490px;
+    font-size: $font-size-t1;
+    line-height: $line-height-t1;
+    margin-bottom: 60px;
+    transition: all 0.3s;
+  }
+
+  .header-home__description--big {
+    max-width: 750px;
+    width: 100%;
+  }
+
+  .header-home__description--about {
+    margin-bottom: 400px;
+    max-width: calc(100% - 590px);
+  }
+
+  .header-home__description--faq {
+    margin-bottom: 270px;
+  }
+
+  .header-home__description--calculator {
+    margin-bottom: 350px;
+  }
+
+  .header-home__img {
+    max-width: 490px;
+    width: 100%;
+  }
+
+  .header-home__btns {
+    transition: all 0.5s;
+  }
+
+  .header-home__btns-mobile {
+    margin-bottom: 370px;
+  }
+
+  .header-home__btns-messanger {
+    margin-bottom: 310px;
+  }
+
+  .header-home__btns-webapp {
+    margin-bottom: 160px;
+  }
+
+  .header-home__btns-desktop {
+    margin-bottom: 60px;
+  }
+
+  .header-home__btns-pricing {
+    padding-bottom: 200px;
+  }
+
+  &.header-home--center-content {
+    text-align: center;
+
+    .header-home__title {
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .header-home__description {
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .header-home__btn {
+
+      &:last-child {
+        margin-right: 15px;
+        margin-left: 15px;
+      }
+
+      &:first-child {
+        margin-left: 15px;
+        margin-right: 15px;
+      }
+    }
+  }
+
+  &.header-home--color {
+    margin-top: 0;
+    padding-top: 190px;
+    background-color: #eff6ff;
+  }
+
+  &.header-home--bottom-space, &.header-home--desktop {
+    margin-bottom: 128px;
+  }
+
+  .header-home__webapp-img {
+    position: absolute;
+    bottom: 0;
+    right: -85px;
+    height: 100%;
+  }
+
+  .header-home__webapp-img-wrap {
+    position: relative;
+  }
+
+  .header-home__about-img {
+    position: absolute;
+    bottom: 0;
+    right: -65px;
+    height: 100%;
+  }
+
+  .header-home__about-img-wrap {
+    position: relative;
+  }
+
+  @media screen and (max-width: 1400px) {
+
+    .header-home__webapp-img {
+      width: calc(100% - 370px);
+      height: auto;
+    }
+  }
+
+  @media screen and (max-width: 1199px) {
+
+    .header-home__title {
+      margin-top: 0;
+    }
+
+    .header-home__title--features {
+      margin-bottom: 250px;
+      width: 700px;
+    }
+
+    .header-home__btns-mobile, .header-home__btns-messanger {
+      margin-bottom: 165px;
+    }
+
+    .header-home__btns-webapp {
+      margin-bottom: 110px;
+    }
+
+    .header-home__btns-desktop {
+      margin-bottom: 40px;
+    }
+
+    .header-home__description--about {
+      margin-bottom: 300px;
+      max-width: calc(100% - 380px);
+    }
+
+    .header-home__description--webapp {
+      width: 420px;
+    }
+
+    &.header-home--desktop {
+      margin-bottom: 108px;
+    }
+
+    .header-home__webapp-img {
+      right: -60px;
+    }
+  }
+
+  @media screen and (max-width: 989px) {
+
+    .header-home__webapp-img, .header-home__about-img {
+      display: none;
+    }
+
+    .header-home__description--webapp {
+      width: 490px;
+    }
+
+
+    .header-home__description--about {
+      max-width: 490px;
+    }
+  }
+
+  @media screen and (max-width: 767px) {
+
+    .header-home__title {
+      width: 100%;
+    }
+
+    .header-home__description {
+      width: 100%;
+      margin-bottom: 40px;
+    }
+
+    .header-home__description--about {
+      max-width: 100%;
+    }
+
+    .header-home__description--calculator {
+      margin-bottom: 120px;
+    }
+
+    .header-home__btns {
+      margin-bottom: 70px;
+    }
+
+    .header-home__btns-pricing {
+      padding-bottom: 140px;
+      margin-bottom: 0;
+    }
+
+    &.header-home--pricing {
+      margin-bottom: 60px;
+    }
+
+    .header-home__btn {
+      margin-bottom: 30px;
+    }
+  }
+}

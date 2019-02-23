@@ -1,0 +1,183 @@
+$font-family-main: 'Nunito', sans-serif;
+
+// Set your color palette in the $theme variable
+
+// red - default
+// blue
+// green
+// violet
+// gradient-red
+// gradient-blue
+// gradient-green
+// gradient-violet
+
+$theme: red;
+
+//red
+$color-accent: #ff5c72;
+$color-accent-hover: #f23f57;
+$color-accent-active: #f0354e;
+
+$color-button-accent: #ff5c72;
+$color-button-accent-hover: #f23f57;
+$color-button-accent-active: #f0354e;
+
+$color-accent-1: #7fb5ff;
+$color-accent-2: #a485f2;
+$color-accent-3: #38e0c4;
+
+$color-event: linear-gradient(to top, #ff5c72, #a485f2);
+
+//blue
+@if $theme == blue {
+  $color-accent: #7fb5ff;
+  $color-accent-hover: #619df2;
+  $color-accent-active: #5696f0;
+
+  $color-button-accent: #7fb5ff;
+  $color-button-accent-hover: #619df2;
+  $color-button-accent-active: #5696f0;
+
+  $color-accent-1: #a485f2;
+  $color-accent-2: #ff5c72;
+  $color-accent-3: #38e0c4;
+
+  $color-event: linear-gradient(to top, #7fb5ff, #3edbfa);
+}
+
+//violet
+@if $theme == violet {
+  $color-accent: #a485f2;
+  $color-accent-hover: #8b67e5;
+  $color-accent-active: #835de3;
+
+  $color-button-accent: #a485f2;
+  $color-button-accent-hover: #8b67e5;
+  $color-button-accent-active: #835de3;
+
+  $color-accent-1: #38e0c4;
+  $color-accent-2: #7fb5ff;
+  $color-accent-3: #ff5c72;
+
+  $color-event: linear-gradient(to top, #a485f2, #7fb5ff);
+}
+
+//green
+@if $theme == green {
+  $color-accent: #38e0c4;
+  $color-accent-hover: #20d4b6;
+  $color-accent-active: #17d1b2;
+
+  $color-button-accent: #38e0c4;
+  $color-button-accent-hover: #20d4b6;
+  $color-button-accent-active: #17d1b2;
+
+  $color-accent-1: #ff5c72;
+  $color-accent-2: #a485f2;
+  $color-accent-3: #7fb5ff;
+
+  $color-event: linear-gradient(to top, #38e0c4, #7fb5ff);
+}
+
+//gradient-red
+@if $theme == gradient-red {
+  $color-accent: #ff5c72;
+  $color-accent-hover: #f23f57;
+  $color-accent-active: #f0354e;
+
+  $color-button-accent: linear-gradient(to right, #ff5c72, #a485f2);
+  $color-button-accent-hover: linear-gradient(to right, #f23f57, #8b67e5);
+  $color-button-accent-active: linear-gradient(to right, #f0354e, #835de3);
+
+  $color-accent-1: #7fb5ff;
+  $color-accent-2: #a485f2;
+  $color-accent-3: #38e0c4;
+
+  $color-event:  linear-gradient(to top, #ff5c72, #a485f2);
+}
+
+//gradient-blue
+@if $theme == gradient-blue {
+  $color-accent: #7fb5ff;
+  $color-accent-hover: #619df2;
+  $color-accent-active: #5696f0;
+
+  $color-button-accent: linear-gradient(to right, #7fb5ff, #3edbfa);
+  $color-button-accent-hover: linear-gradient(to right, #619df2, #1dcff2);
+  $color-button-accent-active: linear-gradient(to right, #5696f0, #13cdf2);
+
+  $color-accent-1: #a485f2;
+  $color-accent-2: #ff5c72;
+  $color-accent-3: #38e0c4;
+
+  $color-event:  linear-gradient(to top, #7fb5ff, #3edbfa);
+}
+
+//gradient-violet
+@if $theme == gradient-violet {
+  $color-accent: #a485f2;
+  $color-accent-hover: #8b67e5;
+  $color-accent-active: #835de3;
+
+  $color-button-accent: linear-gradient(to right, #a485f2, #7fb5ff);
+  $color-button-accent-hover: linear-gradient(to right, #8b67e5, #619df2);
+  $color-button-accent-active: linear-gradient(to right, #835de3, #5696f0);
+
+  $color-accent-1: #38e0c4;
+  $color-accent-2: #7fb5ff;
+  $color-accent-3: #ff5c72;
+
+  $color-event: linear-gradient(to top, #a485f2, #7fb5ff);
+}
+
+//gradient-green
+@if $theme == gradient-green {
+  $color-accent: #38e0c4;
+  $color-accent-hover: #20d4b6;
+  $color-accent-active: #17d1b2;
+
+  $color-button-accent: linear-gradient(to right, #38e0c4, #7fb5ff);
+  $color-button-accent-hover: linear-gradient(to right, #20d4b6, #619df2);
+  $color-button-accent-active: linear-gradient(to right, #17d1b2, #5696f0);
+
+  $color-accent-1: #ff5c72;
+  $color-accent-2: #a485f2;
+  $color-accent-3: #7fb5ff;
+
+  $color-event: linear-gradient(to top, #38e0c4, #7fb5ff);
+}
+
+$color-dark-blue: #234c87;
+$color-dark-blue-hover: #143e7a;
+$color-dark-blue-active: #0e3a78;
+
+$color-text-title: #4c6280;
+$color-text-main: #7d93b2;
+
+$color-gray-1: #9eb4d2;
+$color-gray-2: #bed0e9;
+$color-gray-3: #ceddf2;
+$color-gray-4: #e5f0ff;
+
+$color-background-main: #fafcff;
+
+$font-size-h1: 48px;
+$line-height-h1: 72px;
+
+$font-size-h2: 36px;
+$line-height-h2: 54px;
+
+$font-size-h3: 24px;
+$line-height-h3: 36px;
+
+$font-size-t1: 18px;
+$line-height-t1: 36px;
+
+$font-size-t2: 16px;
+$line-height-t2: 32px;
+
+$font-size-btn: 16px;
+$line-height-btn: 20px;
+
+
+

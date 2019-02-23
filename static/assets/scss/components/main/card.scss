@@ -1,0 +1,26 @@
+.card {
+  background-color: #ffffff;
+  border-radius: 8px;
+  box-shadow: 0 8px 15px rgba(125, 147, 178, 0.25);
+  transition: all 0.3s;
+  padding: 20px;
+  margin-top: 32px;
+
+  &:first-child {
+    margin-top: 0;
+  }
+
+  &:hover {
+    box-shadow: 0 20px 30px rgba(125, 147, 178, 0.15);
+  }
+
+  .card__title {
+    color: $color-text-title;
+    font-weight: 700;
+    margin-top: 0;
+    margin-bottom: 15px;
+    font-size: $font-size-t1;
+    line-height: $line-height-t2;
+  }
+
+}

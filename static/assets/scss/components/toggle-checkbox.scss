@@ -1,0 +1,86 @@
+.toggle-checkbox {
+  width: 100%;
+  justify-content: center;
+  display: inline-flex;
+
+  .toggle-checkbox__input {
+    height: 0;
+    width: 0;
+    visibility: hidden;
+  }
+
+  .toggle-checkbox__input-label {
+    cursor: pointer;
+    text-indent: -9999px;
+    width: 72px;
+    height: 32px;
+    background: $color-button-accent;
+    display: block;
+    border-radius: 100px;
+    position: relative;
+    transition: all 0.3s;
+
+    &::after {
+      content: '';
+      position: absolute;
+      top: 4px;
+      left: 4px;
+      width: 24px;
+      height: 24px;
+      background: #fff;
+      border-radius: 50%;
+      transition: 0.3s;
+    }
+
+    &::before {
+      content: '';
+      position: absolute;
+      top: 4px;
+      left: 4px;
+      width: 24px;
+      height: 24px;
+      background: transparent;
+      border-radius: 50%;
+      transition: 0.3s;
+      opacity: 0.5;
+      box-shadow: 0 8px 15px $color-accent;
+    }
+  }
+
+  .toggle-checkbox__right, .toggle-checkbox__left {
+    font-weight: 400;
+  }
+
+  .toggle-checkbox__left {
+    color: $color-accent;
+    padding-right: 15px;
+  }
+
+  .toggle-checkbox__input:checked ~ .toggle-checkbox__left {
+    color: $color-gray-2;
+  }
+
+  .toggle-checkbox__right {
+    color: $color-gray-2;
+    padding-left: 15px;
+  }
+
+  .toggle-checkbox__input:checked ~ .toggle-checkbox__right {
+    color: $color-accent;
+  }
+
+  .toggle-checkbox__input:checked ~ .toggle-checkbox__input-label {
+    background: $color-button-accent;
+
+    &:after {
+      left: calc(100% - 4px);
+      transform: translateX(-100%);
+    }
+
+    &:before {
+      left: calc(100% - 4px);
+      transform: translateX(-100%);
+      box-shadow: 0 8px 15px $color-accent;
+    }
+  }
+}

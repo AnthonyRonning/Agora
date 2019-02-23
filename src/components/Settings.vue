@@ -188,6 +188,7 @@ export default {
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style lang="scss" scoped>
 
+  @import '../../node_modules/vuetify/dist/vuetify.min.css';
 input::placeholder {
   color: grey;
 }

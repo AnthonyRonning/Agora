@@ -8,7 +8,7 @@
 
 <script>
 
-import Landing from './components/Landing.vue'
+import Landing from './components/Landing2.vue'
 import Home from './components/Home.vue'
 // import Raven from 'raven-js'
 const logger = require('heroku-logger')

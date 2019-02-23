@@ -42,6 +42,7 @@
 </script>
 
 <style scoped>
+  @import '../../node_modules/vuetify/dist/vuetify.min.css';
   .headline {
     color: #333333;
   }
