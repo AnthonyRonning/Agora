@@ -9,7 +9,7 @@
 </template>
 
 <script>
-import Raven from 'raven-js'
+// import Raven from 'raven-js'
 const logger = require('heroku-logger')
 
 export default {
@@ -23,10 +23,10 @@ export default {
   methods: {
     signIn () {
       logger.info('Sign in to blockstack request')
-      Raven.captureBreadcrumb({
+/*      Raven.captureBreadcrumb({
         message: 'User Signing In',
         category: 'action'
-      })
+      }) */
       const blockstack = this.blockstack
       blockstack.redirectToSignIn(window.location.origin, window.location.origin + '/manifest.json', ['store_write', 'publish_data'])
     }
@@ -36,6 +36,7 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
+  @import '../../node_modules/vuetify/dist/vuetify.min.css';
 .hello {
   height: 100%;
   display: flex;

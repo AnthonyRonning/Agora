@@ -1,0 +1,29 @@
+.believe {
+  text-align: center;
+
+  .believe__avatar {
+    width: 120px;
+    height: 120px;
+    object-fit: cover;
+    border-radius: 50%;
+    border: 8px solid #ffffff;
+  }
+
+  .believe__name {
+    color: $color-text-title;
+    font-size: $font-size-t1;
+    line-height: 22px;
+    font-weight: 800;
+  }
+
+  .believe__work {
+    font-size: 14px;
+    line-height: 16px;
+    margin-bottom: 65px;
+  }
+
+  .believe__quote {
+    max-width: 750px;
+    margin: 0 auto;
+  }
+}

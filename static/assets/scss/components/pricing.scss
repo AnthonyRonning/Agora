@@ -1,0 +1,368 @@
+.pricing {
+  margin-top: 50px;
+  margin-bottom: 75px;
+
+  .pricing__card {
+    text-align: center;
+    padding: 35px 30px 60px 30px;
+    margin-top: 60px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .pricing__card-title {
+    margin-bottom: 20px;
+  }
+
+  .pricing__card-title--accent {
+    color: $color-accent;
+  }
+
+  .pricing__card-price {
+    font-size: 48px;
+    line-height: 58px;
+    color: $color-text-title;
+    margin-top: 40px;
+    margin-bottom: 0;
+  }
+
+  .pricing__card-price--per-month {
+    margin: 0;
+  }
+
+  .pricing__opportunities {
+    margin: 30px 0;
+
+    p {
+      margin: 0;
+      line-height: 24px;
+    }
+  }
+
+  .pricing__opportunities--not-available {
+    color: $color-gray-3
+  }
+
+  .pricing__plans {
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    position: relative;
+  }
+
+  .pricing__plan {
+    width: 25%;
+    color: $color-text-title;
+    padding: 54px 5px 0 5px;
+
+    .pricing__opportunities {
+      margin: 20px 0 0 0;
+    }
+
+    &.pricing__plan--disable {
+      color: $color-text-main;
+
+      .pricing__card-title {
+        color: $color-gray-2;
+      }
+    }
+
+    &.pricing__plan--hidden {
+      display: none;
+    }
+
+    &.active {
+
+      .pricing__card-title {
+        color: $color-accent;
+      }
+    }
+  }
+
+  &.pricing--toggle {
+
+    .pricing__card {
+      max-width: 520px;
+    }
+
+    .pricing__card-price--year {
+      opacity: 0;
+      transition: all 0.3s;
+    }
+
+    .pricing__card-price--month {
+      opacity: 1;
+      transition: all 0.3s;
+      margin-top: -57px;
+    }
+
+    .pricing__card-price--per-month {
+      opacity: 0;
+      transition: all 0.3s;
+    }
+
+    .pricing__hr {
+      margin: 0;
+      position: relative;
+      margin-top: 30px;
+
+      &:before {
+        content: "";
+        position: absolute;
+        right: 0;
+        bottom: 0;
+        background-color: $color-gray-1;
+        width: 80px;
+        height: 0;
+        border-radius: 4px 4px 0 0;
+        transition: all 0.3s;
+      }
+    }
+
+    .pricing__card-price-save-wrap {
+      position: relative;
+    }
+
+    .pricing__card-price-save {
+      position: absolute;
+      right: 8px;
+      color: #ffffff;
+      bottom: -8px;
+      z-index: 1;
+      font-size: 14px;
+      line-height: 16px;
+    }
+
+    .pricing__card--year {
+
+      .pricing__card-price--year {
+        opacity: 1;
+      }
+
+      .pricing__card-price--month {
+        opacity: 0;
+      }
+
+      .pricing__card-price--per-month {
+        opacity: 1;
+        height: auto;
+      }
+
+      .pricing__hr {
+
+        &:before {
+          height: 32px;
+        }
+      }
+    }
+  }
+
+  &.pricing--simple {
+
+    .pricing__card {
+      padding: 0 0 60px 0;
+      margin-top: 70px;
+      max-width: 520px;
+    }
+
+    .pricing__card-price--per-month {
+      opacity: 0.5;
+    }
+
+    .pricing__card--recommend {
+      margin-top: 20px;
+
+      .pricing__card-head {
+        background-color: $color-accent;
+        padding-top: 20px;
+      }
+    }
+  }
+
+  &.pricing--common {
+
+    .pricing__card {
+      cursor: auto;
+    }
+
+    .pricing__card-price-wrap {
+      width: 100%;
+      display: flex;
+      flex-wrap: wrap;
+    }
+
+    .pricing__card-price {
+      width: 50%;
+      margin-bottom: 48px;
+
+      p {
+        margin: 0;
+        margin-bottom: 24px;
+      }
+
+      &:first-child {
+        border-right: 1px solid $color-gray-4;
+      }
+    }
+  }
+
+  .pricing__card-head {
+    color: #ffffff;
+    padding: 40px 30px 40px 30px;
+    border-radius: 8px 8px 0 0;
+
+    .pricing__card-title {
+      color: #ffffff;
+    }
+
+    .pricing__card-price {
+      color: #ffffff;
+    }
+
+    &.pricing__card-head--other-color-1 {
+      background-color: $color-accent-1;
+    }
+
+    &.pricing__card-head--other-color-2 {
+      background-color: $color-accent-2;
+    }
+
+    &.pricing__card-head--other-color-3 {
+      background-color: $color-accent-3;
+    }
+
+    .pricing__card-recommend {
+      margin: 0;
+      margin-bottom: 40px;
+    }
+  }
+
+  .pricing__card-price-caption {
+    font-size: 18px;
+    line-height: 18px;
+    padding-left: 12px;
+  }
+
+  &.pricing--select {
+    display: flex;
+    margin: 0;
+    flex-wrap: wrap;
+  }
+
+  .pricing--select-content {
+    max-width: 750px;
+    width: 100%;
+    margin-right: auto;
+  }
+
+  .pricing--select-btns {
+    display: inherit;
+    margin: auto 0;
+
+    .site-btn--accent {
+      margin-left: auto;
+    }
+  }
+
+  @media screen and (max-width: 1200px) and (min-width: 990px) {
+
+    .pricing__card-price-caption {
+      display: block;
+    }
+
+    &.pricing--text .col-offset-1, &.pricing--common .col-m-12 {
+      margin-left: 0;
+    }
+
+    &.pricing--text .col-5 {
+      width: 50%;
+    }
+  }
+
+  @media screen and (max-width: 990px) {
+
+    .pricing__plan {
+      width: 50%;
+    }
+
+    .pricing--select-btns {
+
+      .site-btn--accent {
+        margin-left: 0;
+      }
+
+      .site-btn--light {
+        height: fit-content;
+      }
+    }
+  }
+
+  @media screen and (max-width: 768px) {
+
+    &.pricing--simple {
+
+      .pricing__card {
+        margin-top: 60px;
+      }
+
+      .pricing__card--recommend {
+        margin-top: 60px;
+      }
+    }
+
+    .pricing__plan {
+      width: 100%;
+      position: absolute;
+      visibility: hidden;
+
+      &.pricing__plan--hidden {
+        display: block;
+
+        .pricing__card-title {
+          color: $color-text-title;
+          margin-top: 50px;
+        }
+      }
+    }
+
+    .pricing__plan--last {
+      position: static;
+    }
+  }
+
+  @media screen and (max-width: 480px) {
+
+    &.pricing--common {
+
+      .pricing__card-price {
+        width: 100%;
+        margin-bottom: 0;
+        padding-bottom: 38px;
+        margin-top: 30px;
+
+        &:first-child {
+          border-right: none;
+          border-bottom: 1px solid $color-gray-4;
+          margin-top: -5px;
+          padding-bottom: 20px;
+        }
+      }
+
+      .pricing__card-price p {
+        margin-bottom: 10px;
+      }
+    }
+
+    .pricing--select-btns {
+      margin-bottom: -40px;
+
+      a {
+        margin-bottom: 40px;
+
+        &:last-child {
+          margin-bottom: 0;
+        }
+      }
+    }
+  }
+}

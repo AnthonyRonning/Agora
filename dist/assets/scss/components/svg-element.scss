@@ -1,0 +1,36 @@
+.svg-element {
+  fill: $color-accent;
+  fill-rule: evenodd;
+}
+
+.svg-bg {
+  fill: #fafcff;
+  opacity: 0;
+}
+
+.svg-light-gray {
+  fill: #e5f0ff;
+}
+
+.svg-dark-gray {
+  fill: #7d93b2;
+}
+
+.svg-white {
+  fill: #fff;
+}
+
+.svg-gray {
+  fill: #bed0e9;
+}
+
+.svg-light {
+  fill: #ceddf2;
+}
+
+.svg-text {
+  font-size: 16px;
+  text-anchor: middle;
+  font-family: $font-family-main;
+  font-weight: 800;
+}

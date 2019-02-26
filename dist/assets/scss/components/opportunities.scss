@@ -1,0 +1,36 @@
+.opportunities {
+
+  .opportunities__opportunity {
+    max-width: 360px;
+    margin-bottom: 70px;
+  }
+
+  .opportunities__title {
+    font-size: $font-size-t1;
+    line-height: 28px;
+    color: $color-text-title;
+    padding-bottom: 15px;
+    border-bottom: 1px solid $color-gray-3;
+    position: relative;
+
+    &::before {
+      content: "";
+      position: absolute;
+      height: 3px;
+      width: 64px;
+      background: $color-button-accent;
+      bottom: 0;
+    }
+  }
+
+  p {
+    line-height: 24px;
+  }
+
+  @media screen and (max-width: 768px) {
+
+    .opportunities__opportunity {
+      max-width: 100%;
+    }
+  }
+}

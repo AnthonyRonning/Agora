@@ -1,0 +1,25 @@
+.tags {
+  display: flex;
+  flex-wrap: wrap;
+  margin-top: 20px;
+
+  .tags__tag {
+    padding: 7px 8px;
+    font-size: 14px;
+    margin-right: 8px;
+    margin-bottom: 8px;
+    box-shadow: none;
+    height: 32px;
+
+    &:focus, &:hover {
+      outline: none;
+      box-shadow: none;
+    }
+
+    &.tags__tag--active {
+      background: $color-accent;
+      border-color: $color-accent;
+      color: #ffffff;
+    }
+  }
+}

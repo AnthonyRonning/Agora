@@ -1,0 +1,110 @@
+/*------------------------------------
+ #MAIN
+\*------------------------------------*/
+/**
+ * SETTINGS
+ * Variables...............Variables for themes.
+ *
+ * GENERIC
+ * Normalize................Normalize browser defaults.
+ * Box-sizing...........More manageable box-model.
+ *
+ * Base
+ * Scaffolding................Style bare tags.
+ * Type................Style of types.
+ *
+ * OBJECTS
+ * Layout...............layout settings.
+ *
+ * COMPONENTS
+ * Header-home................Form styling.
+ * Site-btn..............Button styles.
+ * etc...
+ *
+ * THEMES
+ * Themes................Global themes, like changing all page colors.
+ *
+ * UTILITIES
+ * Helpers..............Helper classes of any purpose.
+ * States...............States of components. Like --is-hidden or smth else.
+ *
+ * VENDOR
+ * Modifications..............Change vendor style (JS plugins and so on).
+ *
+ */
+
+// Variables
+@import 'settings/variables';
+
+// Vendor
+@import 'vendor/slick';
+@import 'vendor/slick-theme';
+@import 'vendor/lightgallery';
+@import 'vendor/vendors-extensions';
+
+// Main
+@import 'tools/mixins';
+@import 'generic/normalize';
+@import 'generic/box-sizing';
+@import 'base/scaffolding';
+@import 'base/type';
+@import 'objects/media';
+@import 'objects/animations';
+
+//Components
+@import 'components/main/header-home';
+@import 'components/main/site-btn';
+@import 'components/main/section';
+@import 'components/features';
+@import 'components/main/card';
+@import 'components/questions';
+@import 'components/feedback';
+@import 'components/main/link';
+@import 'components/logo';
+@import 'components/download';
+@import 'components/main/menu';
+@import 'components/svg-element';
+@import 'components/main/footer-menu';
+@import 'components/main/footer';
+@import 'components/about-app';
+@import 'components/video';
+@import 'components/platforms';
+@import 'components/integrate';
+@import 'components/users-over';
+@import 'components/carousel';
+@import 'components/main/background';
+@import 'components/preview';
+@import 'components/native';
+@import 'components/main/topbar';
+@import 'components/privacy';
+@import 'components/faq';
+@import 'components/opportunities';
+@import 'components/leadership';
+@import 'components/events';
+@import 'components/believe';
+@import 'components/gallery';
+@import 'components/pricing';
+@import 'components/form/toggle-checkbox';
+@import 'components/site-table';
+@import 'components/form/form';
+@import 'components/form/radio-btn';
+@import 'components/form/checkbox-btn';
+@import 'components/main/mobile-menu';
+@import 'components/main/sidebar';
+@import 'components/style-switcher';
+@import 'components/start_page';
+@import 'components/calculator';
+@import 'components/blog/blog';
+@import 'components/blog/tags';
+@import 'components/blog/popular';
+@import 'components/blog/post';
+@import 'components/blog/social-card';
+@import 'components/blog/instagram';
+
+// Obj
+@import 'objects/layout';
+@import 'objects/media';
+
+// Utils
+@import 'utilities/helpers';
+@import 'utilities/states';
