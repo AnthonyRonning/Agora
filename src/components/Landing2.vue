@@ -10,21 +10,10 @@
           <div class="menu__item d-t-none">
             <nav class="menu__center-nav">
               <ul>
-                <li>
-                  <div class="menu__dropdown">
-                    <a class="link link--gray menu__dropdown-btn">Home
-                      <span><i class="mdi mdi-chevron-down"></i></span>
-                    </a>
-                    <div class="menu__dropdown-content menu__dropdown-content--home">
-                      <a class="link link--gray" href="index.html">Mobile App</a>
-                      <a class="link link--gray" href="02_messenger.html">Messenger</a>
-                      <a class="link link--gray link--gray-active" href="">Web App</a>
-                      <a class="link link--gray" href="04_desktop.html">Desktop App</a>
-                    </div>
-                  </div>
-                </li>
-                <li><a href="05_features.html" class="link link--gray">Features</a></li>
-                <li><a href="06_pricing.html" class="link link--gray">Pricing</a></li>
+                <li><a href="#home" class="link link--gray">Home</a></li>
+                <li><a href="#features" class="link link--gray">Features</a></li>
+                <li><a href="#about" class="link link--gray">About</a></li>
+                <li><a href="#faq" class="link link--gray">FAQ</a></li>
               </ul>
             </nav>
           </div>
@@ -47,30 +36,17 @@
     <div class="mobile-menu d-none d-t-block">
       <div class="container">
         <div class="mobile-menu__logo">
-          <svg class="menu__logo-img" xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 48 48">
-            <path data-name="Sigma symbol" class="svg-element"
-                  d="M237.418,8583.56a12.688,12.688,0,0,0,.419-3.37c-0.036-5.24-2.691-9.68-7.024-13.2h-3.878a20.819,20.819,0,0,1,4.478,13.01c0,4.56-2.456,10.2-6.413,11.4a16.779,16.779,0,0,1-2.236.51c-10.005,1.55-14.109-17.54-9.489-23.31,2.569-3.21,6.206-4.08,11.525-4.08h17.935A24.22,24.22,0,0,1,237.418,8583.56Zm-12.145-24.45c-8.571.02-12.338,0.98-16.061,4.84-6.267,6.49-6.462,20.69,4.754,27.72a24.092,24.092,0,1,1,27.3-32.57h-16v0.01Z"
-                  transform="translate(-195 -8544)"/>
-          </svg>
+          <svg id="svg_null" class="menu__logo-img" data-name="svg null" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="48" height="48" viewBox="0 0 279.43 325.13"><defs><mask id="mask" x="0" y="0" width="279.43" height="325.13" maskUnits="userSpaceOnUse"><g transform="translate(-8.28 -12.37)"><path class="cls-1" d="M287.72,97.59c0-.25,0-.49-.05-.74s0-.42,0-.63-.1-.49-.15-.74-.07-.4-.12-.6-.17-.5-.26-.75-.11-.36-.18-.54-.25-.5-.37-.75-.15-.32-.23-.46-.34-.52-.51-.77-.16-.24-.24-.36a10.8,10.8,0,0,0-.78-.89l-.12-.13a10,10,0,0,0-2.18-1.68L153,13.77a10.47,10.47,0,0,0-10.48,0L13.81,88.56c-.21.12-.39.26-.58.39s-.38.24-.56.37-.35.31-.52.47-.35.28-.51.44-.3.35-.46.53a6.4,6.4,0,0,0-.42.49c-.15.19-.27.39-.4.59s-.25.35-.36.54-.2.41-.3.62-.22.39-.3.59-.14.44-.22.66-.16.41-.22.62-.08.45-.13.67-.11.45-.14.68,0,.45,0,.68-.05.45-.05.68L8.28,252.24a10.45,10.45,0,0,0,5.23,9.08L143,336.1h0a10.49,10.49,0,0,0,5.23,1.4,10.09,10.09,0,0,0,1.35-.09c.16,0,.31-.06.47-.09s.58-.1.87-.17l.52-.17.78-.27.53-.26c.23-.11.48-.22.7-.35h0L282.19,261.3a10.44,10.44,0,0,0,5.21-9l.32-154.65v0Z"/></g></mask></defs><title>agora</title><g id="root"><g id="shape.primary"><path class="cls-2" d="M287.72,97.59c0-.25,0-.49-.05-.74s0-.42,0-.63-.1-.49-.15-.74-.07-.4-.12-.6-.17-.5-.26-.75-.11-.36-.18-.54-.25-.5-.37-.75-.15-.32-.23-.46-.34-.52-.51-.77-.16-.24-.24-.36a10.8,10.8,0,0,0-.78-.89l-.12-.13a10,10,0,0,0-2.18-1.68L153,13.77a10.47,10.47,0,0,0-10.48,0L13.81,88.56c-.21.12-.39.26-.58.39s-.38.24-.56.37-.35.31-.52.47-.35.28-.51.44-.3.35-.46.53a6.4,6.4,0,0,0-.42.49c-.15.19-.27.39-.4.59s-.25.35-.36.54-.2.41-.3.62-.22.39-.3.59-.14.44-.22.66-.16.41-.22.62-.08.45-.13.67-.11.45-.14.68,0,.45,0,.68-.05.45-.05.68L8.28,252.24a10.45,10.45,0,0,0,5.23,9.08L143,336.1h0a10.49,10.49,0,0,0,5.23,1.4,10.09,10.09,0,0,0,1.35-.09c.16,0,.31-.06.47-.09s.58-.1.87-.17l.52-.17.78-.27.53-.26c.23-.11.48-.22.7-.35h0L282.19,261.3a10.44,10.44,0,0,0,5.21-9l.32-154.65v0Z" transform="translate(-8.28 -12.37)"/></g><g class="cls-3"><path id="shape.accent" class="cls-4" d="M148,40.64l-96.15,53V208.2a9,9,0,0,0,3.61,7.47l89.07,48.14A5.94,5.94,0,0,0,148,265a6.31,6.31,0,0,0,3.62-1.17l88.95-48.16c2.21-1.53,2.92-4.79,2.92-7.86V93.64L148,40.64Z" transform="translate(-8.28 -12.37)"/></g><g class="cls-3"><path class="cls-4" d="M148,40.64q-.47,224,.78,224a6.31,6.31,0,0,0,3.62-1.17l88.17-47.82c2.21-1.53,2.92-4.79,2.92-7.86V94L148,40.64Z" transform="translate(-8.28 -12.37)"/></g><g class="cls-3"><path class="cls-5" d="M151.31,180.86a7.22,7.22,0,0,0-7.22,0L55.43,232.4a7.21,7.21,0,0,0,0,12.47l89.24,51.52a7.23,7.23,0,0,0,7.22,0l88.66-51.52c2.22-1.29,3-3.93,3-6.5s-.77-4.69-3-6l-89.24-51.53Z" transform="translate(-8.28 -12.37)"/></g></g></svg>
         </div>
         <button type="button" class="mobile-menu__close">
           <span><i class="mdi mdi-close" aria-hidden="true"></i></span>
         </button>
         <nav class="mobile-menu__wrapper">
           <ul class="mobile-menu__ul">
-            <li class="mobile-menu__li mobile-menu__li-collapse"><a class="link link--dark-gray">Home
-              <span><i class="mdi mdi-chevron-down"></i></span>
-            </a></li>
-            <li class="mobile-menu__ul--collapsed">
-              <ul class="mobile-menu__ul">
-                <li class="mobile-menu__li"><a class="link link--gray" href="index.html">Mobile App</a></li>
-                <li class="mobile-menu__li"><a class="link link--gray" href="02_messenger.html">Messenger</a></li>
-                <li class="mobile-menu__li"><a class="link link--gray link--gray-active" href="">Web App</a></li>
-                <li class="mobile-menu__li"><a class="link link--gray" href="04_desktop.html">Desktop App</a></li>
-              </ul>
-            </li>
-            <li class="mobile-menu__li"><a href="05_features.html" class="link link--dark-gray">Features</a></li>
-            <li class="mobile-menu__li"><a href="06_pricing.html" class="link link--dark-gray">Pricing</a></li>
+            <li class="mobile-menu__li"><a href="#home" class="link link--dark-gray">Home</a></li>
+            <li class="mobile-menu__li"><a href="#features" class="link link--dark-gray">Features</a></li>
+            <li class="mobile-menu__li"><a href="#about" class="link link--dark-gray">About</a></li>
+            <li class="mobile-menu__li"><a href="#faq" class="link link--dark-gray">FAQ</a></li>
             <li class="mobile-menu__li site-btn site-btn--accent" v-on:click.prevent="signIn">Sign in</li>
           </ul>
         </nav>
@@ -78,10 +54,10 @@
     </div>
 
     <!--Header-->
-    <header class="header-home header-home--color">
+    <header id="home" class="header-home header-home--color">
       <div class="container">
         <div class="row header-home__webapp-img-wrap">
-          <img alt="" class="header-home__webapp-img" src="assets/img/img_bg_webapp.png">
+          <img alt="" class="header-home__webapp-img" src="assets/img/screenshots/Macbook-Seller.png">
           <div class="col-12">
             <h2 class="header-home__title">Take control of your shopping information.</h2>
             <p class="header-home__description header-home__description--webapp">Meet Agora. A decentralized marketplace
@@ -90,7 +66,7 @@
             <div class="header-home__btns header-home__btns-webapp">
               <ul>
                 <li class="site-btn site-btn--accent header-home__btn" v-on:click.prevent="signIn">Start Using Today</li>
-                <li class="site-btn site-btn--invert header-home__btn" v-on:click.prevent="signIn">Explore Features</li>
+                <a class="site-btn site-btn--invert header-home__btn" href="#features">Explore Features</a>
               </ul>
             </div>
           </div>
@@ -99,7 +75,7 @@
     </header>
     <!--Header-->
 
-    <div class="section section--first">
+    <div id="features"  class="section section--first">
       <div class="container">
         <div class="row logo">
           <div class="col-12">
@@ -236,8 +212,8 @@
                   project created to provide freedom for those looking to buy and sell, and a large part of that freedom is
                   the ability to freely access and participate in this peer to peer marketplace.</p>
                 </div>
-                <div class="carousel__slide-img">
-                  <img alt="" src="assets/img/img_feature_screen_1.png">
+                <div class="">
+                  <img alt="" src="assets/img/screenshots/Macbook-Home.png">
                 </div>
               </div>
               <div class="carousel__slide">
@@ -246,8 +222,8 @@
                   <p class="carousel__slide-description">Use your existing Blockstack (if available) login to breeze through the sign up process.
                   Once signed in, it's super simple to list items or browse around the stores. No verification needed to buy/sell.</p>
                 </div>
-                <div class="carousel__slide-img">
-                  <img alt="" src="assets/img/img_feature_screen_2.png">
+                <div class="">
+                  <img alt="" src="assets/img/screenshots/Macbook-Pay.png">
                 </div>
               </div>
               <div class="carousel__slide">
@@ -259,57 +235,59 @@
                     only your purchaser or shop owner can view it. The creators of this app (or anyone for that matter)
                     cannot see what other users are doing, what they are buying, or who they are interacting with.</p>
                 </div>
-                <div class="carousel__slide-img">
-                  <img alt="" src="assets/img/img_feature_screen_3.png">
+                <div class="">
+                  <img alt="" src="assets/img/screenshots/Macbook-SellerOrders.png">
                 </div>
               </div>
               <div class="carousel__slide">
                 <div class="carousel__slide-content">
-                  <h4 class="carousel__slide-title">Shape Your Ideas</h4>
-                  <p class="carousel__slide-description">Lorem ipsum dolor sit amet, consectetur adipiscing
-                    elit. Pellentesque placerat eros ac finibus congue. Integer consectetur, lorem nec
-                    accumsan commodo, sem mauris pharetra arcu, id viverra eros ipsum ac lorem.
-                    Suspendisse potenti.</p>
+                  <h4 class="carousel__slide-title">Own Your Own Data</h4>
+                  <p class="carousel__slide-description">Agora has no centralized database. All data you generate as a user
+                  is saved into your own storage that only you have full access to. When other users view your profile/shop,
+                  they view your files directly. The technology that enables this is called <a href="https://github.com/blockstack/gaia">Gaia</a>
+                  and it allows you to use Amazon S3, Azure Storage, Google Drive, or your own personal storage server.
+                  A Gaia hub is created for you automatically on Azure, but you may configure it yourself by reading more
+                  <a href="https://github.com/blockstack/gaia/blob/master/hub/README.md">here</a>. </p>
                 </div>
-                <div class="carousel__slide-img">
-                  <img alt="" src="assets/img/img_feature_screen_4.png">
+                <div class="">
+                  <img alt="" src="assets/img/screenshots/Macbook-Cart.png">
                 </div>
               </div>
               <div class="carousel__slide">
                 <div class="carousel__slide-content">
-                  <h4 class="carousel__slide-title">Shape Your Ideas</h4>
-                  <p class="carousel__slide-description">Lorem ipsum dolor sit amet, consectetur adipiscing
-                    elit. Pellentesque placerat eros ac finibus congue. Integer consectetur, lorem nec
-                    accumsan commodo, sem mauris pharetra arcu, id viverra eros ipsum ac lorem.
-                    Suspendisse potenti.</p>
+                  <h4 class="carousel__slide-title">Single Sign-on</h4>
+                  <p class="carousel__slide-description">Agora, like most Blockstack apps, uses your Blockstack account
+                    as a sign on mechanism. This allows you to use the same account and configurations without having
+                    to sign up as a new user to each site.</p>
                 </div>
-                <div class="carousel__slide-img">
-                  <img alt="" src="assets/img/img_feature_screen_5.png">
+                <div class="">
+                  <img alt="" src="assets/img/screenshots/Macbook-BlockStackSignIn.png">
                 </div>
               </div>
             </div>
           </div>
         </div>
+        <!-- TODO
         <div class="row">
           <div class="col-12">
             <div class="site-btn--center">
               <a class="site-btn site-btn--light" href="05_features.html">Learn more</a>
             </div>
           </div>
-        </div>
+        </div>-->
         <hr>
       </div>
     </section>
     <!--Features-->
 
     <!--What is-->
-    <section class="section">
+    <section id="about" class="section">
       <div class="container">
         <div class="row">
           <div class="col-12">
             <h3 class="section__title">What is Agora?</h3>
-            <p class="section__description">Meet Agora. The simple, intuitive and powerful app to manage your work.
-              Explore app of the next generation for free and become a part of community of like-minded members.</p>
+            <p class="section__description">Agora allows you, whether a buyer or a seller, to easily setup and instantly start interacting
+            with other users on this marketplace.</p>
           </div>
         </div>
         <div class="row about-app">
@@ -320,15 +298,14 @@
                       d="M496.649,3155.93a1.94,1.94,0,0,0-1.939,1.94v11.78a2.476,2.476,0,0,1-2.473,2.47H461.351a2.475,2.475,0,0,1-2.473-2.47v-30.89a2.475,2.475,0,0,1,2.473-2.47h11.781a1.94,1.94,0,0,0,0-3.88H461.351a6.359,6.359,0,0,0-6.351,6.35v30.89a6.359,6.359,0,0,0,6.351,6.35h30.886a6.359,6.359,0,0,0,6.351-6.35v-11.78A1.94,1.94,0,0,0,496.649,3155.93Zm5.783-18.54-8.824-8.82a1.935,1.935,0,0,0-2.743,0l-22.06,22.06a1.919,1.919,0,0,0-.568,1.37v8.82a1.94,1.94,0,0,0,1.939,1.94H479a1.948,1.948,0,0,0,1.371-.56l22.061-22.07A1.936,1.936,0,0,0,502.432,3137.39ZM478.2,3158.88h-6.082v-6.08l20.122-20.12,6.082,6.08Z"
                       transform="translate(-455 -3128)"/>
               </svg>
-              <h4 class="about-app__description-title">Create</h4>
-              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque placerat eros ac finibus congue.
-                Integer consectetur, lorem nec accumsan commodo, sem mauris pharetra arcu, id viverra eros ipsum ac lorem.
-                Suspendisse potenti.</p>
+              <h4 class="about-app__description-title">Create Your Shop</h4>
+              <p>Setup requires a few details such as your cryptocurrency wallet addresses, at least one item, and NO verification required.
+              Get selling in less than 1 minute!</p>
             </div>
           </div>
-          <div class="col-6 about-app__img">
+          <div class="col-6">
             <div class="about-app__img-wrap">
-              <img alt="" src="assets/img/img_ui_1.png">
+              <img alt="" src="assets/img/screenshots/Macbook-Settings.png">
             </div>
           </div>
         </div>
@@ -340,14 +317,13 @@
                       d="M1019.32,3629.62a4.6,4.6,0,0,0-1.57-1.56h0l-32.688-19.41h-0.01a4.7,4.7,0,0,0-6.4,1.61,4.616,4.616,0,0,0-.653,2.36h0v38.76a4.649,4.649,0,0,0,4.671,4.62h0a4.637,4.637,0,0,0,2.381-.65h0.009l32.689-19.38v-0.01A4.578,4.578,0,0,0,1019.32,3629.62Zm-3.6,3.02-32.67,19.38a0.758,0.758,0,0,1-.91-0.12,0.715,0.715,0,0,1-.219-0.52v-38.76h0a0.735,0.735,0,0,1,.1-0.38,0.75,0.75,0,0,1,.459-0.34,0.721,0.721,0,0,1,.565.08l32.67,19.4a0.667,0.667,0,0,1,.25.25A0.725,0.725,0,0,1,1015.72,3632.64Z"
                       transform="translate(-978 -3608)"/>
               </svg>
-              <h4 class="about-app__description-title">Run</h4>
-              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque placerat eros ac finibus congue.</p>
-              <a href="10_get-app.html" class="site-btn site-btn--accent about-app__btn">Start Using for Free</a>
+              <h4 class="about-app__description-title">Browse</h4>
+              <p>View some of the featured sellers or look for an existing seller if you know their username.</p>
             </div>
           </div>
-          <div class="col-6 about-app__img about-app__img--left">
+          <div class="col-6 about-app__img--left">
             <div class="about-app__img-wrap">
-              <img alt="" src="assets/img/img_ui_2.png">
+              <img alt="" src="assets/img/screenshots/Macbook-Home.png">
             </div>
           </div>
         </div>
@@ -359,36 +335,14 @@
                       d="M495.623,4102.78a1.367,1.367,0,0,1,1.246-.83h0.181a5.95,5.95,0,1,0,0-11.9h-0.333a1.379,1.379,0,0,1-1.136-.61,1.979,1.979,0,0,0-.126-0.4,1.372,1.372,0,0,1,.268-1.51l0.106-.1s0.006-.01.009-0.01a5.952,5.952,0,0,0,0-8.41s-0.006-.01-0.009-0.01a5.922,5.922,0,0,0-4.2-1.74h0a5.885,5.885,0,0,0-4.2,1.75l-0.111.11a1.354,1.354,0,0,1-1.506.26H485.78a1.376,1.376,0,0,1-.83-1.25v-0.18a5.95,5.95,0,0,0-11.9,0v0.33a1.368,1.368,0,0,1-.612,1.14,2.688,2.688,0,0,0-.4.12,1.354,1.354,0,0,1-1.506-.26l-0.115-.12a5.918,5.918,0,0,0-4.2-1.74h0a5.951,5.951,0,0,0-4.206,10.16l0.112,0.11a1.375,1.375,0,0,1,.268,1.51c-0.017.04-.032,0.08-0.046,0.11a1.36,1.36,0,0,1-1.236.9H460.95a5.95,5.95,0,0,0,0,11.9h0.333a1.368,1.368,0,0,1,1.254.83,0.167,0.167,0,0,1,.008.02,1.354,1.354,0,0,1-.268,1.5l-0.111.12h-0.008a5.95,5.95,0,0,0,.009,8.41c0,0.01.005,0.01,0.008,0.01a5.95,5.95,0,0,0,8.409-.01l0.111-.11a1.373,1.373,0,0,1,1.5-.27,0.542,0.542,0,0,0,.114.05,1.362,1.362,0,0,1,.9,1.24v0.15a5.95,5.95,0,1,0,11.9,0v-0.33a1.38,1.38,0,0,1,.831-1.26,0.019,0.019,0,0,0,.019-0.01,1.373,1.373,0,0,1,1.5.27l0.115,0.12a5.922,5.922,0,0,0,4.205,1.74h0a5.953,5.953,0,0,0,4.205-10.16l-0.111-.12a1.356,1.356,0,0,1-.268-1.5C495.618,4102.79,495.62,4102.79,495.623,4102.78Zm-2.506,4.24c0,0.01.01,0.01,0.015,0.02l0.121,0.12a2.076,2.076,0,0,1-1.467,3.54h0a2.077,2.077,0,0,1-1.467-.61l-0.12-.12s-0.01-.01-0.016-0.01a5.271,5.271,0,0,0-8.95,3.75v0.34a2.072,2.072,0,0,1-4.144,0v-0.18c0-.02,0-0.03,0-0.05a5.406,5.406,0,0,0-9.11-3.7s-0.01.01-.015,0.01l-0.121.12a2.071,2.071,0,0,1-2.931,0H464.9a2.076,2.076,0,0,1,0-2.93s0.005,0,.007-0.01l0.116-.11c0-.01.01-0.01,0.015-0.02a5.274,5.274,0,0,0-3.752-8.95H460.95a2.07,2.07,0,1,1,0-4.14h0.226a5.41,5.41,0,0,0,3.707-9.11c0-.01-0.01-0.01-0.015-0.02l-0.121-.12a2.076,2.076,0,0,1,1.466-3.54h0a2.032,2.032,0,0,1,1.466.61l0.121,0.12s0.01,0.01.015,0.01a5.2,5.2,0,0,0,5.413,1.2,1.87,1.87,0,0,0,.517-0.14,5.244,5.244,0,0,0,3.181-4.81v-0.34a2.072,2.072,0,0,1,4.144,0v0.19a5.271,5.271,0,0,0,8.95,3.74s0.01-.01.016-0.01l0.121-.12a2.024,2.024,0,0,1,1.465-.61h0a2.052,2.052,0,0,1,1.461.6s0,0.01.006,0.01a2.049,2.049,0,0,1,.608,1.46,2.079,2.079,0,0,1-.6,1.47h0l-0.121.12c0,0.01-.01.01-0.015,0.02a5.215,5.215,0,0,0-1.2,5.41,1.986,1.986,0,0,0,.141.52,5.257,5.257,0,0,0,4.811,3.18h0.341a2.07,2.07,0,1,1,0,4.14h-0.188A5.274,5.274,0,0,0,493.117,4107.02ZM479,4088.04a7.96,7.96,0,1,0,7.955,7.96A7.966,7.966,0,0,0,479,4088.04Zm0,12.04a4.08,4.08,0,1,1,4.077-4.08A4.083,4.083,0,0,1,479,4100.08Z"
                       transform="translate(-455 -4072)"/>
               </svg>
-              <h4 class="about-app__description-title">Integrate</h4>
-              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque placerat eros ac finibus congue.
-                Integer consectetur, lorem nec accumsan commodo, sem mauris pharetra arcu, id viverra eros ipsum ac lorem.
-                Suspendisse potenti. Vestibulum aliquam blandit scelerisque. Aliquam hendrerit vestibulum lorem non
-                placerat. Etiam at diam id erat tincidunt ullamcorper.</p>
+              <h4 class="about-app__description-title">Pay with Bitcoin</h4>
+              <p>Agora uses Bitcoin as the main currency for all marketplaces, allowing you to get started without credit
+              cards or external verification. Take control of your finances.</p>
             </div>
           </div>
-          <div class="col-6 about-app__img">
+          <div class="col-6">
             <div class="about-app__img-wrap">
-              <img alt="" src="assets/img/img_ui_3.png">
-            </div>
-          </div>
-        </div>
-        <div class="row about-app about-app--reverse">
-          <div class="col-6 about-app__description">
-            <div class="about-app__description-content">
-              <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 48 48">
-                <path class="svg-element"
-                      d="M1016.16,4592H981.841a6.849,6.849,0,0,0-6.841,6.84v39.22a1.937,1.937,0,0,0,3.31,1.37l9.237-9.24h28.613a6.843,6.843,0,0,0,6.84-6.84v-24.51A6.85,6.85,0,0,0,1016.16,4592Zm2.96,31.35a2.968,2.968,0,0,1-2.96,2.97H986.744a1.946,1.946,0,0,0-1.371.56l-6.5,6.5v-34.54a2.966,2.966,0,0,1,2.963-2.96h34.319a2.966,2.966,0,0,1,2.96,2.96v24.51Z"
-                      transform="translate(-975 -4592)"/>
-              </svg>
-              <h4 class="about-app__description-title">Communicate</h4>
-              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque placerat eros ac finibus congue.
-                Integer consectetur, lorem nec accumsan commodo, sem mauris pharetra arcu, id viverra eros ipsum ac
-                lorem. Suspendisse potenti.</p>
-            </div>
-          </div>
-          <div class="col-6 about-app__img about-app__img--left">
-            <div class="about-app__img-wrap">
-              <img alt="" src="assets/img/img_ui_4.png">
+              <img alt="" src="assets/img/screenshots/Macbook-Pay.png">
             </div>
           </div>
         </div>
@@ -400,63 +354,121 @@
 
 
 
-    <!--Download-->
-    <section class="section section--last">
-      <div class="container download">
+    <!--Questions-->
+    <section id="faq" class="section">
+      <div class="container">
         <div class="row">
           <div class="col-12">
-            <h3 class="download__title">Download Agora today</h3>
-            <h3>and get started with a free trial for your business</h3>
+            <h3 class="section__title">Have any questions?</h3>
           </div>
         </div>
-        <div class="row download__btns">
+        <div class="row questions questions--without-cards">
           <div class="col-6">
-            <a href="10_get-app.html" class="site-btn site-btn--accent site-btn--right download__btn-first">
-              Start Using for Free</a>
+            <div class="questions__question">
+              <img alt="" src="assets/img/img_question_1.png" class="questions__icon">
+              <h4 class="questions__title">Who is Agora for?</h4>
+              <p class="questions__answer">Agora is for both shop owners and purchasers that would like more control
+                and privacy with the way that they shop/sell.</p>
+            </div>
           </div>
           <div class="col-6">
-            <a href="05_features.html" class="site-btn site-btn--light site-btn--left">
-              Explore Features</a>
+            <div class="questions__question">
+              <img alt="" src="assets/img/img_question_2.png" class="questions__icon">
+              <h4 class="questions__title">Where is my data?</h4>
+              <p class="questions__answer">Agora does not store any user data or analytics. All data generated is
+              stored in each users' own storage buckets, called Gaia Hubs. You as a user have control over your own hub.</p>
+            </div>
+          </div>
+          <div class="col-6">
+            <div class="questions__question">
+              <img alt="" src="assets/img/img_question_3.png" class="questions__icon">
+              <h4 class="questions__title">Can Agora shut down my marketplace?</h4>
+              <p class="questions__answer">Agora has no control over the items that you list. The items (and all data for that matter)
+                is located on your own storage providers. If you are hosting data in violation of your storage provider,
+                they have the right to terminate your account. While not necessary for the every day user, it's always good
+                to run your own Gaia server to be in complete control and less reliant on third parties.</p>
+            </div>
+          </div>
+          <div class="col-6">
+            <div class="questions__question">
+              <img alt="" src="assets/img/img_question_4.png" class="questions__icon">
+              <h4 class="questions__title">What forms of payment are accepted?</h4>
+              <p class="questions__answer">Right now, only Bitcoin is supported throughout the app. In the future,
+              I'd love to support privacy-focused currencies and 2nd layer solutions such as Lightning.</p>
+            </div>
+          </div>
+          <div class="col-6">
+            <div class="questions__question">
+              <img alt="" src="assets/img/img_question_5.png" class="questions__icon">
+              <h4 class="questions__title">Are there any paid features?</h4>
+              <p class="questions__answer">NO. This project is open sourced and every feature is available for everyone.</p>
+            </div>
+          </div>
+          <div class="col-6">
+            <div class="questions__question">
+              <img alt="" src="assets/img/img_question_6.png" class="questions__icon">
+              <h4 class="questions__title">Can I trust this site?</h4>
+              <p class="questions__answer">Absolutely, but I always encourage the skeptics and the curious to check it out yourselves.
+              You may view and even run the open source software <a href="https://github.com/anthonyRonning/agora">here</a>
+                to be in even more control. </p>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <!--
+          <div class="col-12">
+            <div class="site-btn--center">
+              <a class="site-btn site-btn--light" href="08_faq.html">Read more</a>
+            </div>
+          </div>-->
+        </div>
+        <hr>
+      </div>
+    </section>
+    <!--Questions-->
+
+    <!--Integrate-->
+    <section class="section section--half section--bottom-space">
+      <div class="container">
+        <div class="row">
+          <div class="col-12">
+            <h3 class="section__title">Sign in today!</h3>
+          </div>
+        </div>
+        <div class="row integrate">
+          <div class="col-12">
+            <div class="integrate__card card">
+              <div class="intagrate__logo">
+                <div class="integrate__logo-svg">
+                  <svg id="svg_null" class="menu__logo-img" data-name="svg null" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="48" height="48" viewBox="0 0 279.43 325.13"><defs><mask id="mask" x="0" y="0" width="279.43" height="325.13" maskUnits="userSpaceOnUse"><g transform="translate(-8.28 -12.37)"><path class="cls-1" d="M287.72,97.59c0-.25,0-.49-.05-.74s0-.42,0-.63-.1-.49-.15-.74-.07-.4-.12-.6-.17-.5-.26-.75-.11-.36-.18-.54-.25-.5-.37-.75-.15-.32-.23-.46-.34-.52-.51-.77-.16-.24-.24-.36a10.8,10.8,0,0,0-.78-.89l-.12-.13a10,10,0,0,0-2.18-1.68L153,13.77a10.47,10.47,0,0,0-10.48,0L13.81,88.56c-.21.12-.39.26-.58.39s-.38.24-.56.37-.35.31-.52.47-.35.28-.51.44-.3.35-.46.53a6.4,6.4,0,0,0-.42.49c-.15.19-.27.39-.4.59s-.25.35-.36.54-.2.41-.3.62-.22.39-.3.59-.14.44-.22.66-.16.41-.22.62-.08.45-.13.67-.11.45-.14.68,0,.45,0,.68-.05.45-.05.68L8.28,252.24a10.45,10.45,0,0,0,5.23,9.08L143,336.1h0a10.49,10.49,0,0,0,5.23,1.4,10.09,10.09,0,0,0,1.35-.09c.16,0,.31-.06.47-.09s.58-.1.87-.17l.52-.17.78-.27.53-.26c.23-.11.48-.22.7-.35h0L282.19,261.3a10.44,10.44,0,0,0,5.21-9l.32-154.65v0Z"/></g></mask></defs><title>agora</title><g id="root"><g id="shape.primary"><path class="cls-2" d="M287.72,97.59c0-.25,0-.49-.05-.74s0-.42,0-.63-.1-.49-.15-.74-.07-.4-.12-.6-.17-.5-.26-.75-.11-.36-.18-.54-.25-.5-.37-.75-.15-.32-.23-.46-.34-.52-.51-.77-.16-.24-.24-.36a10.8,10.8,0,0,0-.78-.89l-.12-.13a10,10,0,0,0-2.18-1.68L153,13.77a10.47,10.47,0,0,0-10.48,0L13.81,88.56c-.21.12-.39.26-.58.39s-.38.24-.56.37-.35.31-.52.47-.35.28-.51.44-.3.35-.46.53a6.4,6.4,0,0,0-.42.49c-.15.19-.27.39-.4.59s-.25.35-.36.54-.2.41-.3.62-.22.39-.3.59-.14.44-.22.66-.16.41-.22.62-.08.45-.13.67-.11.45-.14.68,0,.45,0,.68-.05.45-.05.68L8.28,252.24a10.45,10.45,0,0,0,5.23,9.08L143,336.1h0a10.49,10.49,0,0,0,5.23,1.4,10.09,10.09,0,0,0,1.35-.09c.16,0,.31-.06.47-.09s.58-.1.87-.17l.52-.17.78-.27.53-.26c.23-.11.48-.22.7-.35h0L282.19,261.3a10.44,10.44,0,0,0,5.21-9l.32-154.65v0Z" transform="translate(-8.28 -12.37)"/></g><g class="cls-3"><path id="shape.accent" class="cls-4" d="M148,40.64l-96.15,53V208.2a9,9,0,0,0,3.61,7.47l89.07,48.14A5.94,5.94,0,0,0,148,265a6.31,6.31,0,0,0,3.62-1.17l88.95-48.16c2.21-1.53,2.92-4.79,2.92-7.86V93.64L148,40.64Z" transform="translate(-8.28 -12.37)"/></g><g class="cls-3"><path class="cls-4" d="M148,40.64q-.47,224,.78,224a6.31,6.31,0,0,0,3.62-1.17l88.17-47.82c2.21-1.53,2.92-4.79,2.92-7.86V94L148,40.64Z" transform="translate(-8.28 -12.37)"/></g><g class="cls-3"><path class="cls-5" d="M151.31,180.86a7.22,7.22,0,0,0-7.22,0L55.43,232.4a7.21,7.21,0,0,0,0,12.47l89.24,51.52a7.23,7.23,0,0,0,7.22,0l88.66-51.52c2.22-1.29,3-3.93,3-6.5s-.77-4.69-3-6l-89.24-51.53Z" transform="translate(-8.28 -12.37)"/></g></g></svg>
+                </div>
+                <p class="integrate__logo-title">Agora</p>
+              </div>
+              <p class="integrate__description">
+                Use the link below to sign in! You will be redirected to blockstack for authentication.
+                If you have not yet logged in before, you will create/recover your account first. Afterwards,
+                there will be a request to start using Agora with your Blockstack login.
+              </p>
+                <p class="site-btn site-btn--accent" v-on:click.prevent="signIn">Sign in with Blockstack</p>
+            </div>
           </div>
         </div>
       </div>
-      <img alt="" class="section__img" src="assets/img/img_backgroud_footer.png">
     </section>
-    <!--Download-->
+    <!--Integrate-->
+
+    <div class="section section--light background background--clouds"></div>
 
     <!--Footer menu-->
     <div class="container footer-menu">
       <div class="row">
         <div class="col-12">
-          <a href="index.html">
-            <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 48 48">
-              <path data-name="Sigma symbol" class="svg-element"
-                    d="M237.418,8583.56a12.688,12.688,0,0,0,.419-3.37c-0.036-5.24-2.691-9.68-7.024-13.2h-3.878a20.819,20.819,0,0,1,4.478,13.01c0,4.56-2.456,10.2-6.413,11.4a16.779,16.779,0,0,1-2.236.51c-10.005,1.55-14.109-17.54-9.489-23.31,2.569-3.21,6.206-4.08,11.525-4.08h17.935A24.22,24.22,0,0,1,237.418,8583.56Zm-12.145-24.45c-8.571.02-12.338,0.98-16.061,4.84-6.267,6.49-6.462,20.69,4.754,27.72a24.092,24.092,0,1,1,27.3-32.57h-16v0.01Z"
-                    transform="translate(-195 -8544)"/>
-            </svg>
-          </a>
           <nav class="footer-menu__nav">
             <ul>
-              <li><a class="link link--gray" href="07_about.html">About</a></li>
-              <li><a class="link link--gray" href="08_faq.html">FAQ</a></li>
-              <li><a class="link link--gray" href="09_privacy.html">Privacy</a></li>
-              <li><a href="blog/12_blog.html" class="link link--gray">Blog</a></li>
+              <li><a class="link link--gray" href="https://twitter.com/AgoraShops">Twitter</a></li>
+              <li><a class="link link--gray" href="https://github.com/anthonyRonning/agora">Github</a></li>
             </ul>
           </nav>
-          <p class="footer-menu__social">
-            <a class="link link--gray" href="">
-              <i class="mdi mdi-twitter" aria-hidden="true"></i>
-            </a>
-            <a class="link link--gray" href="">
-              <i class="mdi mdi-facebook" aria-hidden="true"></i>
-            </a>
-            <a class="link link--gray" href="">
-              <i class="mdi mdi-linkedin" aria-hidden="true"></i>
-            </a>
-            <a class="link link--gray" href="">
-              <i class="mdi mdi-instagram" aria-hidden="true"></i>
-            </a>
-          </p>
         </div>
       </div>
     </div>
@@ -464,7 +476,7 @@
 
     <hr>
 
-    <!--Footer-->
+    <!--Footer
     <div class="footer">
       <div class="container">
         <div class="row">
@@ -474,7 +486,7 @@
           </div>
         </div>
       </div>
-    </div>
+    </div>-->
   </div>
 
 </template>
