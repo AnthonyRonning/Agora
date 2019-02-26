@@ -1,0 +1,46 @@
+.leadership {
+
+  .leadership__item {
+    position: relative;
+    margin-bottom: 80px;
+  }
+
+  .leadership__avatar {
+    position: absolute;
+    border-radius: 50%;
+    height: 120px;
+    width: 120px;
+    object-fit: cover;
+    border: 9px solid #ffffff;
+    box-shadow: 0 8px 15px rgba(125, 147, 178, 0.25);
+  }
+
+  .leadership__name {
+    padding-left: 140px;
+    font-size: $font-size-t1;
+    line-height: 22px;
+    margin: 0;
+    font-weight: 800;
+    color: $color-text-title;
+    padding-top: 30px;
+  }
+
+  .leadership__work {
+    padding-left: 140px;
+    font-size: 14px;
+    line-height: 16px;
+    margin-top: 10px;
+  }
+
+  @media screen and (max-width: 768px) {
+    text-align: center;
+
+    .leadership__avatar {
+      left: calc(50% - 140px);
+    }
+
+    .leadership__name, .leadership__work {
+      padding-left: 120px;
+    }
+  }
+}

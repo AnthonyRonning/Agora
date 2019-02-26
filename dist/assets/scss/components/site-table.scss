@@ -1,0 +1,164 @@
+.site-table {
+  overflow-x: auto;
+  width: 100%;
+  overflow-y: hidden;
+  margin-bottom: 95px;
+
+  &::-webkit-scrollbar {
+    height: 0;
+  }
+
+  & {
+    -ms-overflow-style: none;
+  }
+
+  & {
+    overflow: -moz-scrollbars-none;
+  }
+
+  @media screen and (max-width: 768px) {
+    margin-bottom: 30px;
+  }
+
+  .site-table__head-th {
+    font-size: $font-size-h3;
+    line-height: $line-height-h3;
+    font-weight: 400;
+    padding-bottom: 45px;
+    position: relative;
+    overflow: hidden;
+
+    p {
+      transform: translateX(0);
+      transition: all 0.4s 0.1s;
+      margin: 0;
+    }
+
+  }
+
+  .site-table__head-th--accent {
+    color: $color-accent;
+  }
+
+  .site-table__head-th--other-color-1 {
+    color: $color-accent-1;
+  }
+
+  .site-table__head-th--other-color-2 {
+    color: $color-accent-2;
+  }
+
+  .site-table__head-th--other-color-3 {
+    color: $color-accent-3;
+  }
+
+  .site-table__row {
+    background-color: #ffffff;
+  }
+
+  .site-table__row:nth-of-type(odd) {
+    background-color: #eff6ff;
+  }
+
+  .site-table__th {
+    color: $color-text-main;
+    font-weight: 300;
+    font-size: $font-size-t1;
+    line-height: 22px;
+    text-align: left;
+    padding-right: 60px;
+    height: 73px;
+  }
+
+  .site-table__td {
+    overflow: hidden;
+
+    p {
+      transform: translateX(0);
+      transition: all 0.4s 0.1s;
+      margin: 0;
+    }
+  }
+
+  .site-table__td--active {
+    display: block;
+  }
+
+  .site-table__td--bold {
+    font-weight: 800;
+  }
+
+  .site-table__icon {
+    color: $color-accent;
+  }
+
+  .site-table__btn-row {
+    background-color: transparent;
+
+    td {
+      padding-bottom: 40px;
+    }
+
+    a {
+      transition: all 0.4s 0.1s;
+    }
+  }
+
+  th, td {
+    padding: 20px;
+    text-align: center;
+  }
+
+  .site-table__th--new {
+    position: relative;
+
+    &:before {
+      content: "New";
+      position: absolute;
+      right: 0;
+      color: #ffffff;
+      background-color: $color-text-main;
+      border-radius: 4px;
+      font-size: 14px;
+      line-height: 14px;
+      padding: 10px 12px;
+      top: 20px;
+    }
+  }
+
+  .hidden {
+    display: none;
+  }
+
+  @media screen and (max-width: 768px) {
+
+    .site-table__th, td {
+      font-size: 14px;
+    }
+
+    .site-table__th {
+      padding-right: 48px;
+    }
+
+    .site-table__head .site-table__head-th {
+      font-size: 18px;
+    }
+
+    .site-table__th--new {
+
+      &:before {
+        padding: 5px 6px;
+        top: 25px;
+      }
+    }
+
+    th, td {
+      padding: 12px;
+    }
+
+    .site-table__btn-next, .site-table__btn-prev {
+      top: 12px;
+    }
+  }
+}
+

@@ -1,0 +1,47 @@
+html {
+  // IE11 & Edge make the scrollbar overlap the content and automatically hide itself when not in use.
+  -ms-overflow-style: scrollbar;
+  // Changes the default tap highlight to be completely transparent in iOS.
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+}
+
+body {
+  font-family: $font-family-main;
+  font-size: $font-size-t2;
+  line-height: $line-height-t2;
+  color: $color-text-main;
+  background-color: $color-background-main;
+  font-weight: 200;
+}
+
+hr {
+  margin: 0;
+  background-color: $color-gray-4;
+  color: $color-gray-4;
+  border: none;
+  height: 2px;
+}
+
+a {
+  text-decoration: none;
+  transition: all 0.3s;
+}
+
+img {
+  max-width: 100%;
+}
+
+ul {
+  list-style: none;
+}
+
+nav {
+
+  li {
+    display: inline-block;
+  }
+}
+
+button:focus, button:active{
+  outline: none;
+}

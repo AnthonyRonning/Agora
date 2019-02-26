@@ -1,0 +1,101 @@
+.style-switcher {
+  position: fixed;
+  right: -200px;
+  bottom: 50px;
+  z-index: 100;
+  transition: all 0.6s;
+
+  .style-switcher__control {
+    position: absolute;
+    bottom: 0;
+    left: -48px;
+    cursor: pointer;
+    width: 48px;
+    height: 48px;
+    background: #234c87;
+    box-shadow: 0 20px 30px rgba(125, 147, 178, 0.3);
+    border-radius: 8px 0 0 8px;
+    transition: all 0.5s;
+  }
+
+  .style-switcher__control::after {
+    content: url("../img/img_color.png");
+    position: absolute;
+    color: #ffffff;
+    pointer-events: none;
+    transition: all 0.5s;
+    top: 12px;
+    left: 12px;
+    height: 24px;
+  }
+
+  .style-switcher__control:hover {
+    box-shadow: 0 10px 20px rgba(125, 147, 178, 0.1);
+
+    &::after {
+      transform: rotate(-45deg);
+    }
+  }
+
+  .style-switcher__list {
+    padding: 16px 8px 16px 16px;
+    background: #fefefe;
+    box-shadow: 0 15px 40px rgba(125, 147, 178, 0.3);
+    border-radius: 8px 0 0 0;
+    height: 107px;
+  }
+
+  .style-switcher__link {
+    border-radius: 4px;
+    cursor: pointer;
+    display: inline-block;
+    width: 32px;
+    height: 32px;
+    margin-right: 8px;
+    transition: all 0.3s;
+
+    &:hover {
+      border: 2px solid $color-dark-blue;
+    }
+
+    &.active {
+      border: 3px solid $color-dark-blue;
+    }
+  }
+
+  .style-switcher__link--red {
+    background-color: #ff5c72;
+  }
+
+  .style-switcher__link--blue {
+    background-color: #7fb5ff;
+  }
+
+  .style-switcher__link--violet {
+    background-color: #a485f2;
+  }
+
+  .style-switcher__link--green {
+    background-color: #38e0c4;
+  }
+
+  .style-switcher__link--red-gradient {
+    background: linear-gradient(to right, #ff5c72, #a485f2);
+  }
+
+  .style-switcher__link--blue-gradient {
+    background: linear-gradient(to right, #7fb5ff, #3edbfa);
+  }
+
+  .style-switcher__link--violet-gradient {
+    background: linear-gradient(to right, #a485f2, #7fb5ff);
+  }
+
+  .style-switcher__link--green-gradient {
+    background: linear-gradient(to right, #38e0c4, #7fb5ff);
+  }
+
+  &.style-switcher--active {
+    right: 0;
+  }
+}

@@ -1,0 +1,58 @@
+.topbar {
+  border-bottom: 1px solid $color-gray-3;
+  text-align: center;
+  transition: all 0.3s;
+
+  .topbar__item {
+    padding: 0;
+  }
+
+  .topbar__link {
+    font-size: $font-size-t1;
+    line-height: 28px;
+    width: 100%;
+    display: block;
+    height: 100%;
+    padding: 25px 0;
+    cursor: pointer;
+
+    &:after {
+      content: "";
+      width: 100%;
+      position: absolute;
+      height: 0;
+      background: $color-button-accent;
+      opacity: 0;
+      bottom: 0;
+      transition: all 0.3s;
+      left: 0;
+    }
+
+    &.active {
+      color: $color-accent;
+
+      &:after {
+        opacity: 1;
+        height: 3px;
+      }
+    }
+  }
+
+  &.topbar--fixed {
+    position: fixed;
+    top: 95px;
+    width: 100%;
+    background-color: $color-background-main;
+    z-index: 99;
+    transform: translateY(0);
+    transition: all 0.3s;
+  }
+}
+
+.topbar-wrapper {
+  height: 83px;
+
+  @media screen and (max-width: 768px) {
+    display: none;
+  }
+}
